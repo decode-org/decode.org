@@ -41,13 +41,13 @@ gulp.task('jekyll:prod', $.shell.task('jekyll build --config _config.yml,_config
 // Compiles the SASS files and moves them into the 'assets/stylesheets' directory
 gulp.task('styles', function () {
   // Looks at the style.scss file for what to include and creates a style.css file
-  return gulp.src('src/assets/scss/style.scss')
-    .pipe($.sass())
+  return gulp.src('src/assets/css/main.less')
+    .pipe($.less())
     // AutoPrefix your CSS so it works between browsers
     .pipe($.autoprefixer('last 1 version', { cascade: true }))
     // Directory your CSS file goes to
-    .pipe(gulp.dest('src/assets/stylesheets/'))
-    .pipe(gulp.dest('serve/assets/stylesheets/'))
+    .pipe(gulp.dest('src/assets/css/'))
+    .pipe(gulp.dest('serve/assets/css/'))
     // Outputs the size of the CSS file
     .pipe($.size({title: 'styles'}))
     // Injects the CSS changes to your browser since Jekyll doesn't rebuild the CSS
@@ -56,15 +56,15 @@ gulp.task('styles', function () {
 
 // Optimizes the images that exists
 gulp.task('images', function () {
-  return gulp.src('src/assets/images/**')
-    .pipe($.changed('site/assets/images'))
+  return gulp.src('src/assets/img/**')
+    .pipe($.changed('site/assets/img'))
     .pipe($.imagemin({
       // Lossless conversion to progressive JPGs
       progressive: true,
       // Interlace GIFs for progressive rendering
       interlaced: true
     }))
-    .pipe(gulp.dest('site/assets/images'))
+    .pipe(gulp.dest('site/assets/img'))
     .pipe($.size({title: 'images'}));
 });
 
@@ -177,7 +177,7 @@ gulp.task('deploy', function () {
 
 // Run JS Lint against your JS
 gulp.task('jslint', function () {
-  gulp.src('./serve/assets/javascript/*.js')
+  gulp.src('./serve/assets/js/*.js')
     // Checks your JS code quality against your .jshintrc file
     .pipe($.jshint('.jshintrc'))
     .pipe($.jshint.reporter());
@@ -204,7 +204,7 @@ gulp.task('serve:dev', ['styles', 'jekyll:dev'], function () {
 // reload the website accordingly. Update or add other files you need to be watched.
 gulp.task('watch', function () {
   gulp.watch(['src/**/*.md', 'src/**/*.html', 'src/**/*.xml', 'src/**/*.txt'], ['jekyll-rebuild']);
-  gulp.watch(['serve/assets/stylesheets/*.css', 'serve/assest/javascript/*.js'], reload);
+  gulp.watch(['serve/assets/stylesheets/*.css', 'serve/assets/js/*.js'], reload);
   gulp.watch(['src/assets/scss/**/*.scss'], ['styles']);
 });
 
