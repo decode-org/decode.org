@@ -1,3 +1,3 @@
 # Decode Website
 
-[Describe the project.]
+Home for Decode
