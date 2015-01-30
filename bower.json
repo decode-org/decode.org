@@ -1,5 +1,7 @@
 {
   "name": "decode-org",
   "version": "0.0.0",
-  "dependencies": {}
+  "dependencies": {
+    "jquery": "1"
+  }
 }
