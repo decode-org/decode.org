@@ -1,8 +1,23 @@
+.content-wrapper {
+  margin: 0 auto;
+
+  width: 100%;
+  max-width: 800px;
+  box-sizing: border-box;
+  padding: 0 @punit;
+
+  .uncollapse;
+
+  @media @xlarge {
+    max-width: 1000px;
+  }
+}
+
 .uncollapse {
-    &:before, &:after {
-        content: ' ';
-        display: table;
-    }
+  &:before, &:after {
+    content: ' ';
+    display: table;
+  }
 }
 
 .clearfix {
