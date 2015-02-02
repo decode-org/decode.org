@@ -64,15 +64,24 @@ body {
 
     filter: contrast(0%) brightness(50%);
 
-    transition: 0.5s;
+    transition: 0.1s;
   }
 
   a, a:visited {
+    display: block;
+
     color: @brand-black;
     text-align: center;
+
+    transform: scale(1);
+
+    transition: 0.1s;
   }
 
   a:hover {
+
+    transform: scale(1.1);
+
     img {
       filter: contrast(100%) brightness(100%);
     }

@@ -810,13 +810,24 @@ body {
   height: 100%;
   -webkit-filter: contrast(0%) brightness(50%);
           filter: contrast(0%) brightness(50%);
-  -webkit-transition: 0.5s;
-          transition: 0.5s;
+  -webkit-transition: 0.1s;
+          transition: 0.1s;
 }
 .lesson-collections a,
 .lesson-collections a:visited {
+  display: block;
   color: #272727;
   text-align: center;
+  -webkit-transform: scale(1);
+      -ms-transform: scale(1);
+          transform: scale(1);
+  -webkit-transition: 0.1s;
+          transition: 0.1s;
+}
+.lesson-collections a:hover {
+  -webkit-transform: scale(1.1);
+      -ms-transform: scale(1.1);
+          transform: scale(1.1);
 }
 .lesson-collections a:hover img {
   -webkit-filter: contrast(100%) brightness(100%);
