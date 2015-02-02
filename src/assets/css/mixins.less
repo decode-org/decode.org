@@ -13,6 +13,11 @@
   }
 }
 
+.wrapper-nopad {
+  &:extend(.content-wrapper);
+  padding: 0;
+}
+
 .uncollapse {
   &:before, &:after {
     content: ' ';
