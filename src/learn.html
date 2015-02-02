@@ -1,6 +1,10 @@
 ---
 title: Learn
 ---
-{% for collection in site.lesson_collections %}
+{% for collection_key in site.data.lessons.index.collections %}
+{% capture path %}_lesson_collections/{{ collection_key }}.md{% endcapture %}
+{% assign collection = site.lesson_collections|where:"relative_path",path %}
+{% assign collection = collection[0] %}
+
 <a href="{{ collection.url }}">{{ collection.title }}</a>
 {% endfor %}
