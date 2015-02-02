@@ -36,10 +36,23 @@ paginate: 10
 paginate_path: 'page:num'
 excerpt_separator: '<!--more-->'
 
+# Collection settings
+collections:
+  lessons:
+    output: true
+    permalink: /learn/:path/
+
+# Front matter defaults
+defaults:
+  - scope:
+      path: ''
+    values:
+      layout: 'default'
+
 # Markdown library
 markdown: redcarpet
 # Markdown library options
 redcarpet:
   extensions: ['no_intra_emphasis', 'tables', 'fenced_code_blocks', 'autolink', 'smart',
               'strikethrough', 'superscript', 'underline', 'highlight', 'footnotes']
-highlighter: true
+highlighter: pygments
