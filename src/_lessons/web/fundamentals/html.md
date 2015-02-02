@@ -1,22 +1,28 @@
 ---
-title: Diving into HTML
+
 ---
 The web relies primarily on two languages for displaying information that we see in an everyday website:
 
-*   **HTML** (Hyper Text Markup language) A markup language that tells the browser what to display
-*   **CSS** (Cascading Style Sheets)A stylesheet language used to change the displaying of HTML beyond its default presentation
+*   **HTML ** (Hyper Text Markup language) A markup language that tells the browser what to display*   **CSS** (Cascading Style Sheets)A stylesheet language used to change the displaying of HTML beyond its default presentation
 
 ### Software
 
-Before you start writing in HTML and CSS, you're going to need something to write with. This decision is completely up to you, but we suggest a great tool from Adobe for developing on the web called [Brackets](http://download.brackets.io). If you are on a Windows machine without admin rights, you can download this [portable version](http://goo.gl/JBX2IB).
+    Before you start writing in HTML and CSS, you're going to need something to write with. This decision is completely up to you, but we suggest a great tool from Adobe for developing on the web called [Brackets](http://download.brackets.io). If you are on a Windows machine without admin rights, you can download this [portable version](http://goo.gl/JBX2IB).
 
-Alternatively, if you want a more online solution, [jsFiddle](http://jsfiddle.net/) will let you develop code for the web in your browser.
+    Alternatively, if you want a more online solution, [jsFiddle](http://jsfiddle.net/) will let you develop code for the web in your browser.
 
 ## HTML
 
 HTML is responsible for every website you visit, in a way. It carries information for the browser to display, and it does this through markup. You create this information using tags, and the syntax for those tags is as follows
 
-<%-: "web1/html/syntax.html" | preview %>
+``` html
+<element attribute="value">
+    <nestedelement>
+        Text
+    </nestedelement>
+    <selfclosingelement />
+</element>
+```
 
 You can put the syntax down to a few core aspects:
 
@@ -27,7 +33,7 @@ That's pretty much all you need to know to start writing in HTML. Please bear in
 
 To begin, make a new folder for your project in whatever software you are using, and then make a new file called `index.html`. These `.html` files store HTML data, funnily enough. Then write the following code in your new file
 
-<%-: "web1/html" | preview %>
+**WARN:** Unable to preview web1/html
 
 Alright, so what's going on here? Let's go through the code line by line:
 
@@ -46,28 +52,38 @@ With this knowledge, being an expert in HTML is really arming yourself with seve
 #### Headings
 
 You've learned about the `<p>` element for making paragraphs, you can use similar elements for making headings, which help to differentiate between sections of text (for example, the big text "Headings" in this section is a heading). There are six different heading elements, from `<h1>` to `<h6>`. They are numbered in order of rank, so `<h1>` is the biggest and most significant while `<h6>` is the smallest and least significant. Try adding the following to the beginning of your body tag
-<%-: "web1/html/headings.html" | preview %>
+``` html
+
+# This is my first heading!
+
+```
 
 #### Anchors
 
 <p>Anchors can do a lot, but at first you'll probably use them for links to other pages. Anchors are denoted by the `<a>` tag. All of the text inside that will go to the URL you specify when clicked. To specify the url you use the `href` attribute. So to make a link to google, you would write it like this
 
-<%-: "web1/html/anchors1.html" | preview %>
+``` html
+[Go to Google](http://google.co.nz)
+```
 
 If you use this, you'll notice that it takes you to the link in your current tab/window. To make it open a new tab/window (depending on browser), set the `target` attribute.
 
-<%-: "web1/html/anchors2.html" | preview %>
+``` html
+[Go to Google](http://google.co.nz)
+```
 
 #### Bold and Italics
 
-If you want to make your text **bold** or *italisized* with pure HTML, just use the `<b>` and `<i>` tags, it's that simple.
+If you want to make your text **bold** or _italisized_ with pure HTML, just use the `<b>` and `<i>` tags, it's that simple.
 
-<%-: "web1/html/bold.html"| preview %>
+``` html
+**This is bold**, _this is in italics!_
+```
 
 ### Putting it Together
 
 Take all of these new elements and put them into one document, you can copy this into your own computer and it will render as planned
-<%-: "web1/html/final" | preview %>
+**WARN:** Unable to preview web1/html/final
 
 ### There You Have It
 
