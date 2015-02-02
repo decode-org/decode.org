@@ -1,0 +1,4 @@
+- name: Introduction to Web
+  author: Christian Silver
+  path: fundamentals
+  lessons: ['html', 'css', 'variables', 'functions', 'logic', 'loops', 'drawing']

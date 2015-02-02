@@ -1,0 +1,4 @@
+- name: Flash Games with FlashPunk
+  author: Christian Silver
+  path: flashpunk
+  lessons: ['setup', 'entities', 'keyboard', 'mouse']

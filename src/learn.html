@@ -1,0 +1,6 @@
+---
+title: Learn
+---
+{% for collection in site.lesson_collections %}
+<a href="{{ collection.url }}">{{ collection.title }}</a>
+{% endfor %}

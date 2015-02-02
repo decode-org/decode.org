@@ -41,6 +41,9 @@ collections:
   lessons:
     output: true
     permalink: /learn/:path/
+  lesson_collections:
+    output: true
+    permalink: /learn/:path/
 
 # Front matter defaults
 defaults:
