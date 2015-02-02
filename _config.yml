@@ -51,6 +51,11 @@ defaults:
       path: ''
     values:
       layout: 'default'
+  - scope:
+      path: ''
+      collection: 'lesson_collections'
+    values:
+      layout: 'lesson_collection'
 
 # Markdown library
 markdown: redcarpet
