@@ -1,5 +1,5 @@
 ---
-
+title: Interactivity with Functions and Events
 ---
 So you've learned the basics of Javascript and programming, but you haven't yet put true functionality into something (pun intended). How can we add user interaction? Make it so people can tell our app what to do. We must start with the function.
 

@@ -11,4 +11,13 @@ layout: default
   {% assign sets = sets|where:"path",path %}
   {% assign set = sets[0] %}
   <h3>{{ set.name }}</h3>
+  <h5>{{ set.author }}</h5>
+  <ul>
+    {% for lesson_key in set.lessons %}
+      {% capture path %}_lessons/{{ set_key }}/{{ lesson_key }}.md{% endcapture %}
+      {% assign lesson = site.lessons|where:"relative_path",path %}
+      {% assign lesson = lesson[0] %}
+      <li><a href="{{ lesson.url }}" />{{ lesson.title }}</a></li>
+    {% endfor %}
+  </ul>
 {% endfor %}

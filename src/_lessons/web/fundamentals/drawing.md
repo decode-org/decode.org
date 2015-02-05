@@ -1,5 +1,5 @@
 ---
-
+title: Arrays and Drawing
 ---
 Arrays are the last super basic programming aspect to cover. These aspects that you've learned so far pretty much apply to all programming languages, so they'll be useful everywhere. Once we've done arrays, we'll put all of the stuff covered so far into one neat little program. First, get set up with your code.
 

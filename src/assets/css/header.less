@@ -55,13 +55,18 @@
       display: inline-block;
     }
 
-    a {
+    a, a:visited {
       height: @header-height;
       display: block;
       padding: 0 @punit;
 
       line-height: @header-height;
       font-weight: 300;
+      color: @brand-white;
+    }
+
+    a:hover {
+      color: @brand-primary-light;
     }
   }
 }

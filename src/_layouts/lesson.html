@@ -1,0 +1,34 @@
+---
+layout: default
+---
+{% assign set_key = page.relative_path|replace:'_lessons/','' %}
+{% assign set_keys = set_key|split:'/' %}
+{% assign technology = set_keys[0] %}
+{% assign path = set_keys[1] %}
+{% assign sets = site.data.lessons[technology] %}
+{% assign sets = sets|where:"path",path %}
+{% assign set = sets[0] %}
+
+<nav class="subpage-nav">
+  <h3>{{ set.name }}</h3>
+  <ul>
+    {% for lesson_key in set.lessons %}
+      {% capture lesson_path %}_lessons/{{ technology }}/{{ path }}/{{ lesson_key }}.md{% endcapture %}
+      {% assign lesson = site.lessons|where:"relative_path",lesson_path %}
+      {% assign lesson = lesson[0] %}
+      {% if current %}{% assign next = lesson %}{% assign current = false %}{% endif %}
+      {% if lesson_path != page.relative_path %}
+        <li><a href="{{ lesson.url }}" />{{ lesson.title }}</a></li>
+      {% else %}
+        {% assign current = true %}
+        {% if past %}{% assign previous = past %}{% endif %}
+        <li>{{ lesson.title }}</li>
+      {% endif %}
+      {% assign past = lesson %}
+    {% endfor %}
+  </ul>
+</nav>
+
+{{ content }}
+{% if previous %}<p class="prev-lesson"><a href="{{ previous.url }}">&laquo; Previous</a></p>{% endif %}
+{% if next %}<p class="next-lesson"><a href="{{ next.url }}">Next &raquo;</a></p>{% endif %}

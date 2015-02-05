@@ -1,15 +1,16 @@
 ---
-
+title: Diving into HTML
 ---
 The web relies primarily on two languages for displaying information that we see in an everyday website:
 
-*   **HTML ** (Hyper Text Markup language) A markup language that tells the browser what to display*   **CSS** (Cascading Style Sheets)A stylesheet language used to change the displaying of HTML beyond its default presentation
+*   **HTML** (Hyper Text Markup language) A markup language that tells the browser what to display
+*   **CSS** (Cascading Style Sheets)A stylesheet language used to change the displaying of HTML beyond its default presentation
 
 ### Software
 
-    Before you start writing in HTML and CSS, you're going to need something to write with. This decision is completely up to you, but we suggest a great tool from Adobe for developing on the web called [Brackets](http://download.brackets.io). If you are on a Windows machine without admin rights, you can download this [portable version](http://goo.gl/JBX2IB).
+Before you start writing in HTML and CSS, you're going to need something to write with. This decision is completely up to you, but we suggest a great tool from Adobe for developing on the web called [Brackets](http://download.brackets.io). If you are on a Windows machine without admin rights, you can download this [portable version](http://goo.gl/JBX2IB).
 
-    Alternatively, if you want a more online solution, [jsFiddle](http://jsfiddle.net/) will let you develop code for the web in your browser.
+Alternatively, if you want a more online solution, [jsFiddle](http://jsfiddle.net/) will let you develop code for the web in your browser.
 
 ## HTML
 
@@ -52,10 +53,9 @@ With this knowledge, being an expert in HTML is really arming yourself with seve
 #### Headings
 
 You've learned about the `<p>` element for making paragraphs, you can use similar elements for making headings, which help to differentiate between sections of text (for example, the big text "Headings" in this section is a heading). There are six different heading elements, from `<h1>` to `<h6>`. They are numbered in order of rank, so `<h1>` is the biggest and most significant while `<h6>` is the smallest and least significant. Try adding the following to the beginning of your body tag
+
 ``` html
-
-# This is my first heading!
-
+<h1>This is my first heading!</h1>
 ```
 
 #### Anchors
@@ -69,7 +69,7 @@ You've learned about the `<p>` element for making paragraphs, you can use simila
 If you use this, you'll notice that it takes you to the link in your current tab/window. To make it open a new tab/window (depending on browser), set the `target` attribute.
 
 ``` html
-[Go to Google](http://google.co.nz)
+<a href="http://google.co.nz">Go to Google</a>
 ```
 
 #### Bold and Italics
@@ -77,7 +77,7 @@ If you use this, you'll notice that it takes you to the link in your current tab
 If you want to make your text **bold** or _italisized_ with pure HTML, just use the `<b>` and `<i>` tags, it's that simple.
 
 ``` html
-**This is bold**, _this is in italics!_
+<b>This is bold</b>, <i>this is in italics!</i>
 ```
 
 ### Putting it Together

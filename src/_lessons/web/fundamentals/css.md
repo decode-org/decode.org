@@ -1,11 +1,12 @@
 ---
-
+title: Adding Some Styles
 ---
 You've learned HTML and you've just skimmed the surface of the power behind the web. You haven't even learned a programming language yet. But before we do that, we shall learn CSS. CSS stands for Cascading Style Sheets and is used to change the way the browser renders HTML, to make websites look good.
 
 ## Prepare For CSS
 
 CSS is stored in `.css` files, so in a folder where you want this to be make your `index.html` file and a `main.css` file. Now let's take the HTML from the last lesson, and add a few crucial elements to link to the CSS file
+
 ``` html
 <!DOCTYPE html>
 <html>
@@ -13,9 +14,9 @@ CSS is stored in `.css` files, so in a folder where you want this to be make you
         <link rel="stylesheet" type="text/css" href="main.css" />
     </head>
     <body>
-
-Hello HTML! **This is bold**, _this is in italics!_ [Go to Google](http://google.co.nz)
-
+          <p>
+              Hello HTML! <b>This is bold</b>, <i>this is in italics!</i>, <a href="http://google.co.nz">Go to Google</a>
+          </p>
     </body>
 </html>
 ```
@@ -57,11 +58,8 @@ Uh oh! It's blue as well. This is because our css is pointing towards all `<p>` 
         <link rel="stylesheet" type="text/css" href="main.css" />
     </head>
     <body>
-
-Hello HTML! **This is bold**, _this is in italics!_ [Go to Google](http://google.co.nz)
-
-Paragraph number two
-
+        <p class="blue">Hello HTML! <b>This is bold</b>, <i>this is in italics!</i> <a href="http://google.co.nz" target="_blank">Go to Google</a></p>
+        <p>Paragraph number two</p>
     </body>
 </html>
 ```
@@ -83,11 +81,8 @@ Take this basic knowledge and add some more properties to set, now we can make a
         <link rel="stylesheet" type="text/css" href="main.css" />
     </head>
     <body>
-
-Hello HTML! **This is bold**, _this is in italics!_ [Go to Google](http://google.co.nz)
-
-Paragraph number two
-
+        <p>Hello HTML! <b>This is bold</b>, <i>this is in italics!</i> <a href="http://google.co.nz" target="_blank">Go to Google</a></p>
+        <p>Paragraph number two</p>
         <div class="button">Button</div>
     </body>
 </html>

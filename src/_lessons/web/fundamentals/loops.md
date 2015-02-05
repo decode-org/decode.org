@@ -1,5 +1,5 @@
 ---
-
+title: Loops and Switch Statements
 ---
 Loops are so important in programming for automation and complex tasks. They'll allow you to do things in miliseconds what would take an ordinary human years. Let's get set up
 

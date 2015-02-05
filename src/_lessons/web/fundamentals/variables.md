@@ -1,5 +1,5 @@
 ---
-
+title: JavaScript and Variables
 ---
 So far, the languages we've dealt with have not been programming languages. For web applications, or any application for that matter, to be truly dynamic, a programming language is incorporated. Javascript is the programming language of the web and is an interpreted, high level, object oriented programming language. This makes it a really powerful, but very easy to use language for making your websites really quite nice.
 
@@ -30,9 +30,8 @@ The second new aspect here is the `<script>` element, which links to your javasc
 *   You do not need to set the `rel` attribute
 *   Instead of setting the `href` attribute to point to its source, you set the `src` attribute
 *   It is at the end of the `<body>` element, rather than in the `<head>` element. It's perfectly acceptable to put it in the `<head>` element, but it goes in the body for two main reasons
-
-        1.  The script needs to make reference to objects on the page sometimes. If these pages haven't been loaded yet, for example, in the head element, you won't be able to access them.
-    2.  Some scripts can be quite heavy in terms of file size, and people want to have their webpage displayed as soon as possible, so that the user doesn't get upset. Putting the script at the end means that the page will load first
+*  The script needs to make reference to objects on the page sometimes. If these pages haven't been loaded yet, for example, in the head element, you won't be able to access them.
+*  Some scripts can be quite heavy in terms of file size, and people want to have their webpage displayed as soon as possible, so that the user doesn't get upset. Putting the script at the end means that the page will load first
 
 Now fill your css file with the `button` class we made in the last lesson, just for some good looks.
 

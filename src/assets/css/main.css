@@ -391,7 +391,8 @@ th {
   content: ' ';
   display: table;
 }
-.clearfix:after {
+.clearfix:after,
+.lesson-collections:after {
   content: ' ';
   /* Older browser do not support empty content */
   visibility: hidden;
@@ -454,13 +455,18 @@ li {
 a,
 a:visited {
   text-decoration: none;
+  color: #ffb384;
   font-weight: bold;
   cursor: pointer;
+}
+a:hover {
+  color: #ff741e;
 }
 a:focus {
   outline: none;
 }
 .highlight {
+  color: #ffffff;
   /* Comment */
   /* Error */
   /* Generic */
@@ -775,6 +781,9 @@ body {
 .site-content {
   padding-top: 64px;
 }
+.site-content .content-wrapper {
+  position: relative;
+}
 .site-content p > img {
   display: block;
   margin: 0 auto;
@@ -833,6 +842,46 @@ body {
   -webkit-filter: contrast(100%) brightness(100%);
           filter: contrast(100%) brightness(100%);
 }
+.subpage-nav {
+  color: #767676;
+}
+.subpage-nav h3 {
+  margin-top: 0;
+  font-size: 0.8em;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+.subpage-nav h5 {
+  margin: 0.4em 0;
+}
+.subpage-nav ul {
+  list-style-type: none;
+  padding: 0;
+}
+.subpage-nav li {
+  display: block;
+  font-size: 0.8em;
+  font-weight: bold;
+}
+@media only screen and (min-width: 1281px) {
+  .subpage-nav {
+    position: absolute;
+    margin-left: -220px;
+    z-index: 10;
+    width: 200px;
+  }
+}
+.next-lesson,
+.prev-lesson {
+  width: 50%;
+}
+.next-lesson {
+  float: right;
+  text-align: right;
+}
+.prev-lesson {
+  float: left;
+}
 /* Variables
    ========================================================================== */
 /* Styles
@@ -875,10 +924,15 @@ body {
   height: 64px;
   display: inline-block;
 }
-.site-header .site-links a {
+.site-header .site-links a,
+.site-header .site-links a:visited {
   height: 64px;
   display: block;
   padding: 0 20px;
   line-height: 64px;
   font-weight: 300;
+  color: #ffffff;
+}
+.site-header .site-links a:hover {
+  color: #fff2ea;
 }
