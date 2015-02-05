@@ -842,6 +842,22 @@ body {
   -webkit-filter: contrast(100%) brightness(100%);
           filter: contrast(100%) brightness(100%);
 }
+.hero {
+  margin-bottom: 20px;
+  height: 250px;
+  background: #ffb384;
+}
+.hero .content-wrapper {
+  position: relative;
+  height: 100%;
+}
+.hero h1 {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  right: 20px;
+  color: #ffffff;
+}
 .subpage-nav {
   color: #767676;
 }
