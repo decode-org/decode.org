@@ -1,7 +1,7 @@
 ---
-
+title: Tutorial Introduction
 ---
-<q>Welcome, so glad you are accompanying us on our journey!</q> - Kristian
+> Welcome, so glad you are accompanying us on our journey!</q> - Kristian
 
 This expansive tutorial set covers everything a beginner or intermediate programmer needs to know about the Java programming language. Journey through 50+ tutorials
 that comprehensively cover their subject in many categories with Java, including inheritance, generics, concurrency, io, and much more!

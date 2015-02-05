@@ -1,5 +1,5 @@
 ---
-
+title: Inheritance and Interfaces
 ---
 ## Introduction
 

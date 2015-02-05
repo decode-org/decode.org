@@ -1,10 +1,11 @@
 ---
-
+title: Setting up FlashPunk
+type: video
+url: flashgame1
 ---
-    In this video we learn how to set up FlashPunk under FlashDevelop to prepare for some awesome game development.
+In this video we learn how to set up FlashPunk under FlashDevelop to prepare for some awesome game development.
 
-## 
-    Links to get Started
+## Links to get Started
 
 *   [Get FlashDevelop](http://www.flashdevelop.org/)
 *   [Guide to setting it up](http://useflashpunk.net/getting-started/setting-up-flashdevelop.html)

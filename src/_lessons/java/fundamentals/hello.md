@@ -1,5 +1,5 @@
 ---
-
+title: Hello World
 ---
 This brief tutorial will show you how to make your own hello world application. It will go over the basic structure of the program, what each line of code does, 
 and what the program will output in the console once executed.

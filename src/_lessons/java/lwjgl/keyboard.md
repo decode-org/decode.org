@@ -1,5 +1,5 @@
 ---
-
+title: Keyboard Input with LWJGL
 ---
 ## Introduction
 

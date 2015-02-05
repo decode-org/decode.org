@@ -1,7 +1,7 @@
 ---
-
+title: Creating Instances
 ---
-<q>Instances are copies of a class</q> - Kristian
+> Instances are copies of a class - Kristian
 
 In this lesson, we will create a new instance of our `Computer` object. Object instances are how programs run and adapt - they are the lifeblood of a program.
 In this lesson, we will show you how to create and manipulate instances.

@@ -1,5 +1,5 @@
 ---
-
+title: Setting Up
 ---
 ## What is Java?
 

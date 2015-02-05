@@ -1,5 +1,5 @@
 ---
-
+title: Basic Java Syntax
 ---
 Because Java is a different language to other programming languages, the syntax for certain elements might be slightly different. This page shows comprehensivley 
 the syntax for items in Java

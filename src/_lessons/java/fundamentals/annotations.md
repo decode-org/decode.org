@@ -1,5 +1,5 @@
 ---
-
+title: Annotations and Enumerated Types
 ---
 ## Introduction
 

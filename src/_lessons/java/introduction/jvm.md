@@ -1,5 +1,5 @@
 ---
-
+title: About the JVM
 ---
 <q>The JVM is the magic behind the Java language</q> - Kristian
 

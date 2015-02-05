@@ -1,5 +1,5 @@
 ---
-
+title: Data Types
 ---
 <!DOCTYPE html>
 <html>

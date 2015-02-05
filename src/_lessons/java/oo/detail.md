@@ -1,5 +1,5 @@
 ---
-
+title: Introduction Continued
 ---
 There are more to objects in Java. An object can be copied as many times as you like, and have different states to each other. A copy of an object is referred to as
 an instance. For example, imagine a `Computer` object that has states brand, os, RAM. It can have whatever behaviour as you want. Make an instance of `Computer`

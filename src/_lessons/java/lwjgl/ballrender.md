@@ -1,5 +1,5 @@
 ---
-
+title: Rendering our Ball
 ---
 ## Introduction
 

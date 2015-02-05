@@ -1,7 +1,7 @@
 ---
-
+title: Introduction to Object Orientation
 ---
-<q>Objects are everything and everything are objects</q> - Kristian
+> Objects are everything and everything are objects - Kristian
 
 In Java, everything is an object. But what does this mean?
 

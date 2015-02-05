@@ -1,7 +1,7 @@
 ---
-
+title: What are Classes?
 ---
-<q>Classes are the mold of objects</q> - Kristian
+> Classes are the mold of objects - Kristian
 
 Classes are very important in Java. They contain all of your code that defines an object's state and behavour - essentially they are the blueprints for objects. 
 There is generally one class for each file in Java, and the class name must have the same name as the file name. For example, a file called `Computer.java` will hold a

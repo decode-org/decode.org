@@ -1,5 +1,5 @@
 ---
-
+title: Data Types
 ---
 <q>Objects are so much more</q> - Kristian
 

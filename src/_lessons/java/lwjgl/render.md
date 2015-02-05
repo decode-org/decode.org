@@ -1,5 +1,5 @@
 ---
-
+title: Rendering Our Objects
 ---
 ## Introduction
 

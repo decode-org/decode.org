@@ -1,5 +1,5 @@
 ---
-
+title: jQuery
 ---
 There are smart people all over the world trying to make your life as a programmer easier. You will be often told to not reinvent the wheel, and this is very good advice. One library designed to make Javascript easier is [jQuery](http://jquery.com/). A great tutorial for getting started can be found [here<a/>. On Decode, there are two examples to play with, a quiz, and an object engine
 

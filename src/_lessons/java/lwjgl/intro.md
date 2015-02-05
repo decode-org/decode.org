@@ -1,5 +1,5 @@
 ---
-
+title: Introduction to LWJGL
 ---
 ## What is LWJGL?
 
@@ -16,7 +16,7 @@ is included with OpenAL, so you don't need to worry about that when coding.
 ## Prerequisites
 
 Before we get started into programming a game, you first need to have an understanding of the Java language itself. There is a set of Java tutorials in this website! You can find
-them [here](http://decode.org.nz/lessons/collection/java).
+them [here](/learn/java/).
 
 You also need the LWJGL library itself. You can find that [here](http://lwjgl.org/download.php).
 

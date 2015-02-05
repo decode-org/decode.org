@@ -1,5 +1,5 @@
 ---
-
+title: Display With LWJGL
 ---
 ## Introduction
 

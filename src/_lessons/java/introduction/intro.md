@@ -1,7 +1,7 @@
 ---
-
+title: What is Java?
 ---
-<q>Over 3 billion devices run Java</q> - Java installer
+> Over 3 billion devices run Java - Java installer
 
 The Java language is very impressive. It is a write-once, run-anywhere language, meaning the code only has to be written once, and when it is compiled, it is usuable everywhere.
 The Java language is multi-platform, although some features do vary slightly between platforms.

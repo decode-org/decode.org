@@ -1,7 +1,7 @@
 - name: Java Fundamentals
   path: fundamentals
   author: Kristian Hansen
-  lessons: ['setup', 'syntaxt', 'hello', 'data', 'objects', 'inheritance', 'generics', 'error', 'io', 'annotations']
+  lessons: ['setup', 'syntax', 'hello', 'data', 'objects', 'inheritance', 'generics', 'error', 'io', 'annotations']
 - name: Introduction
   path: introduction
   author: Kristian Hansen

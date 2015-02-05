@@ -1,5 +1,5 @@
 ---
-
+title: Setting Up a LWJGL Project
 ---
 ## Introduction
 
