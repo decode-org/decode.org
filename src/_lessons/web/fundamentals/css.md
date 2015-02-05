@@ -27,7 +27,12 @@ There are only two new elements in this file, a `<head>` element and a `<link>` 
 
 CSS has a really simple syntax, which is as follows
 
-**WARN:** Unable to preview web2/csssyntax
+``` css
+selector { 
+   property1: value1; 
+   property2: value2; 
+}
+```
 
 *   The selector gives the instructions as to what elements we style
 *   That style is set within the bounds of the two curly brackets (`{ }`).*   Within the style you set properties, the left side is the property you are setting
@@ -39,7 +44,7 @@ CSS has a really simple syntax, which is as follows
 
 In your `main.css` file you can write the following CSS
 
-**WARN:** Unable to preview web2/cssprepare
+{% codepen 12f5f769512c7614e5446384d64e5adf type: css, height: 200 %} 
 
 Here we have set the `color` property to `#0000ff` for all `<p>` elements. If everything has been done right, and you open up `index.html` in your browser, you will see your paragraph has turned a startling blue! This property refers to the colour of the text, and that random string of numbers was a hexidecimal colour. 
 
@@ -47,7 +52,7 @@ Here we have set the `color` property to `#0000ff` for all `<p>` elements. If ev
 
 Say we want to make another `<p>` element. Lets add it in
 
-**WARN:** Unable to preview web2/cssprepare/trueblue
+{% codepen f9b0a8bcd88311ddae10c50fe7c9ad4f type: result, height: 200 %} 
 
 Uh oh! It's blue as well. This is because our css is pointing towards all `<p>` elements. We can fix this pretty easily. So first, lets add a `class` attribute to our first `<p>` element
 
@@ -66,7 +71,7 @@ Uh oh! It's blue as well. This is because our css is pointing towards all `<p>` 
 
 And now we make a really simple change to our CSS file, and that's to the selector
 
-**WARN:** Unable to preview web2/classes
+{% codepen c81e39faf591416e842bece91e5eee2d height: 200 %}
 
 This new selector, instead of pointing to all `<p>` elements, it uses the period (`.`) before the selector and the class name to point to all elements with the `blue` class, like our first paragraph. Selectors do get a little more complex than this, but for the most part this is all you will need.
 
@@ -81,9 +86,9 @@ Take this basic knowledge and add some more properties to set, now we can make a
         <link rel="stylesheet" type="text/css" href="main.css" />
     </head>
     <body>
-        <p>Hello HTML! <b>This is bold</b>, <i>this is in italics!</i> <a href="http://google.co.nz" target="_blank">Go to Google</a></p>
+        <p class="blue">Hello HTML! <b>This is bold</b>, <i>this is in italics!</i> <a href="http://google.co.nz" target="_blank">Go to Google</a></p>
         <p>Paragraph number two</p>
-        <div class="button">Button</div>
+        
     </body>
 </html>
 ```
@@ -117,7 +122,7 @@ That's quite a few different properties, so let's go through them individually
 
 Lets add some interactivity to this button, with a new selector
 
-**WARN:** Unable to preview web2/cssbutton
+{% codepen aa1816d234cb6220fc04198dfd3ffe43 %}
 
 This `:hover` at the end of the selector means that the style will only apply when the mouse is over the element. Here, we're changing the background of the button and changing the mouse cursor to a hand pointer.
 

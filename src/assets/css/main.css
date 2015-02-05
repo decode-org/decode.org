@@ -908,6 +908,12 @@ body {
 .prev-lesson {
   float: left;
 }
+.codepen {
+  margin-bottom: 1em;
+}
+.codepen iframe {
+  display: block;
+}
 /* Variables
    ========================================================================== */
 /* Styles
