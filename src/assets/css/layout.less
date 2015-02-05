@@ -116,7 +116,7 @@ body {
   }
 }
 
-.subpage-nav {
+.lesson-set {
   color: @brand-grey;
 
   h3 {
@@ -141,6 +141,14 @@ body {
     font-size: 0.8em;
     font-weight: bold;
   }
+}
+
+.lesson-card {
+  &:extend(.lesson-set all);
+}
+
+.subpage-nav {
+  &:extend(.lesson-set all);
 
   @media @screen and (min-width: 1281px) {
     position: absolute;

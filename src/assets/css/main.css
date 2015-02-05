@@ -858,22 +858,32 @@ body {
   right: 20px;
   color: #ffffff;
 }
+.lesson-set,
+.lesson-card,
 .subpage-nav {
   color: #767676;
 }
+.lesson-set h3,
+.lesson-card h3,
 .subpage-nav h3 {
   margin-top: 0;
   font-size: 0.8em;
   text-transform: uppercase;
   font-weight: bold;
 }
+.lesson-set h5,
+.lesson-card h5,
 .subpage-nav h5 {
   margin: 0.4em 0;
 }
+.lesson-set ul,
+.lesson-card ul,
 .subpage-nav ul {
   list-style-type: none;
   padding: 0;
 }
+.lesson-set li,
+.lesson-card li,
 .subpage-nav li {
   display: block;
   font-size: 0.8em;
