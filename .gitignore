@@ -70,3 +70,4 @@ aws-credentials.json
 rsync-credentials.json
 
 bower
+.jekyll-metadata

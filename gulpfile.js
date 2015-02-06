@@ -19,6 +19,8 @@ var merge = require('merge-stream');
 var reload = browserSync.reload;
 // And define a variable that BrowserSync uses in it's function
 var bs;
+// Execute shell commands
+var spawn = require('child_process').spawn;
 
 var onError = function (err) {
     console.log(err);
@@ -220,7 +222,7 @@ gulp.task('serve:dev', ['styles', 'jekyll:dev'], function () {
 // reload the website accordingly. Update or add other files you need to be watched.
 gulp.task('watch', function () {
   gulp.watch(['src/**/*.md', 'src/**/*.html', 'src/**/*.xml', 'src/**/*.txt'], ['jekyll-rebuild']);
-  gulp.watch(['serve/assets/**'], reload);
+  gulp.watch(['serve/**'], reload);
   gulp.watch(['src/assets/css/**/*.less'], ['styles']);
   gulp.watch(['src/assets/**', '!src/assets/css/**'], ['assets']);
 });
