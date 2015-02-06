@@ -47,6 +47,7 @@ Now fill your css file with the `button` class we made in the last lesson, just 
     margin-left: auto;
     margin-right: auto;
 }
+
 .button:hover {
     background: #aaaaaa;
     cursor: pointer;
@@ -57,15 +58,21 @@ Now fill your css file with the `button` class we made in the last lesson, just 
 
 "Hello World!" is an infamous program that first time programmers use to prove that they can program. It involves printing that very simple phrase to the screen, we shall do exactly the same, try this code out in your `main.js` file
 
-**WARN:** Unable to preview web3/variables/config1
+``` js
+document.write("Hello World!");
+```
 
 If you have done everything correctly, this text should display where you put your script element. And just like that, you are now a programmer! But what exactly have we done here? The first thing you've done is accessed an object called `document` which represents your HTML document, and then by using the period (`.`), you can access properties within that object. A property that you have accessed is a function, called `write`, and then to this function you have passed an argument, the text `"Hello World!"`. The browser executes that function and prints the text as asked.
 
 `document.write` is generally frowned upon for security reasons, so now we can turn to that div we created earlier for outputting. Change your code to this
 
-**WARN:** Unable to preview web3/variables/config2
+``` js
+document.getElementById("output").innerHTML = "Hello World!";
+```
 
-Now if you execute this, the text should appear where you made your output `div`. What's going on this time? We're accessing the same `document` object, but using a different function. `getElementById` will take an id as an argument, and then return an element from the document with that id. In this case we gave it `output`, so in return, it gave us the output element from the document. Then on that object, we're accessing a variable, `innerHTML`, and then setting that variable with `=` to the string `"Hello World!"`. And from that, the text has been put into the document
+Now if you execute this, the text should appear where you made your output `div`. What's going on this time? We're accessing the same `document` object, but using a different function. `getElementById` will take an id as an argument, and then return an element from the document with that id. In this case we gave it `output`, so in return, it gave us the output element from the document. Then on that object, we're accessing a variable, `innerHTML`, and then setting that variable with `=` to the string `"Hello World!"`. And from that, the text has been put into the document.
+
+{% codepen 5de104d7032c16c5720916812612f653 height: 200 %}
 
 ## Variables?
 
@@ -83,7 +90,10 @@ a = 5;
 
 Great, so now what? We can access that variable and put it in our document.
 
-**WARN:** Unable to preview web3/variables/config3
+``` js
+var a = 5;
+document.getElementById("output").innerHTML = a;
+```
 
 So now we've set `a` to `5`, and then set `innerHTML` to `a`. So with any luck, you should see the number 5 on screen.
 
@@ -111,6 +121,16 @@ a += 20;
 
 Just like with our `innerHTML`, variables can be put on the right side of the equation as well
 
-**WARN:** Unable to preview web3/variables/config4
+``` js
+var a = (5 + 2) * 3 / 9 - 1;
+a += 20;
+
+var b = 2;
+a += b;
+
+document.getElementById("output").innerHTML = a;
+```
+
+{% codepen 77fda764d640f7b4285396319121ba77 height: 200 %}
 
 And that's about all you need to know for a basic understanding of variables. Currently, it may seem like programming isn't helping us much, but we're not far away from some true interactivity.

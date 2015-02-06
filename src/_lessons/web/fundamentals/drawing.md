@@ -3,7 +3,44 @@ title: Arrays and Drawing
 ---
 Arrays are the last super basic programming aspect to cover. These aspects that you've learned so far pretty much apply to all programming languages, so they'll be useful everywhere. Once we've done arrays, we'll put all of the stuff covered so far into one neat little program. First, get set up with your code.
 
-**WARN:** Unable to preview web7/arrays/setup
+### index.html
+
+``` html
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="main.css" />
+    </head>
+    <body>
+        <div id="output"></div>
+        <div class="button" id="fruit">Fruit Please</div>
+        <canvas width="400" height="300" id="drawer"></canvas>
+        <div class="button" id="newball">Add Ball</div>
+        <script type="text/javascript" src="main.js"></script>
+    </body>
+</html>
+```
+
+### main.js
+
+``` js
+//Intitialise Global Variables
+var fruit = [], canvas, circles = [];
+
+//Function that outputs a random fruit from our array
+function getFruit() {
+    
+}
+
+//Draws a circle randomly on screen
+function addBall() {
+    
+}
+
+//Binds our functions to their respective buttons
+document.getElementById("fruit").onclick = getFruit;
+document.getElementById("newball").onclick = addBall;
+```
 
 ## Arrays
 
@@ -19,7 +56,13 @@ fruit[3] = "Apple";
 
 From here you can see that the notation is pretty simple. To access the index n of a variable, simply type `variable[n]` and then you can treat that just like you would any other variable. Time to make this array do something. Following our usual trend of random things, we're going to pick a random fruit from this list by putting some code in the `getFruit` function.
 
-**WARN:** Unable to preview web7/arrays/getFruit
+```
+//Function that outputs a random fruit from our array
+//Note the floor function: rounds the number down to the nearest whole number
+function getFruit() {
+    document.getElementById("output").innerHTML = fruit[Math.floor(Math.random() * fruit.length)];
+}
+```
 
 Whoa! What is that outputting? What does that expression mean? It may seem complicated but when you pick apart `fruit[Math.floor(Math.random() * fruit.length)]`, it's a little more simple than it may seem initially.
 
@@ -28,9 +71,13 @@ Whoa! What is that outputting? What does that expression mean? It may seem compl
 *   `Math.floor()` is important because arrays need indices of a natural number. If the number has a a fractional part, like the random number we've generated, you'll get an error. To remedy this, we round the number down using this floor function.
 *   The only numbers that can be generated from this are 0, 1, 2 and 3, which are the only elements in our array. We have successfully picked a random one.
 
-That's basically all there is to arrays. Now onto making something really cool.
+That's basically all there is to arrays. Now onto making something fun.
 
 ## Drawing
+
+Here's what we'll be making:
+
+{% codepen 4d948cd15e3aa666641ad71f331ad0ba height: 500 %}
 
 So what was this `<canvas>` element that's in the `index.html` file. This element is a relatively new HTML file that allows you to directly manipulate pixels on the screen. Using it is pretty simple, but there are some important things you need to keep in mind when using canvases:
 
@@ -47,7 +94,22 @@ canvas = document.getElementById("drawer");
 
 Then put some code in the `addBall` function to actually draw a circle on the canvas.
 
-**WARN:** Unable to preview web7/arrays/draw1
+``` js
+//Draws a circle randomly on screen
+function addBall() {
+    //Get the canvas context
+    var ctx = canvas.getContext("2d")
+    
+    //Start drawing
+    ctx.beginPath();
+    
+    //Draw an arc. Arguments are x (pixels), y (pixels), radius (pixels), startPoint (radians), endPoint (radians)
+    ctx.arc(Math.random() * canvas.width, Math.random() * canvas.height, 5, 0, Math.PI * 2);
+    
+    //Fill our arc/circle!
+    ctx.fill();
+}
+```
 
 Following that description of drawing earlier, most of this should make sense. One new function you'll see is `ctx.arc()` which is what we're using to draw the circle. For the first time, here is a function that requires more than one argument. Arguments are seperated with a comma (`,`) as you see in the code. The first two arguments are your `x` and `y` arguments. These values can be a little hard to get your head around. `x` refers to the horizontal distance starting from the left side of the canvas. Zero is the leftmost value, and a higher value is more to the right. `y` is similar but zero starts from the top, greater means lower.
 
@@ -110,7 +172,34 @@ function redraw() {
 
 This function first clears the canvas using `ctx.clearRect(x, y, width, height)`, which is a function that clears all pixels in the area of a rectangle that you specify the dimensions of. Then it uses this really interesting _for-in_ loop. This is a special kind of for loop that iterates over all of the indices of an array, and then stores it in a variable so then we can do things with the elements of the array. By saying `for (ind in circles)` we are saying "loop over the circles array and on each iteration of the loop, store the index in the variable `ind`". In that function we store the element from the array for quick reference and call all of the familiar drawing code. The last step is to use this special `setTimeout(function, time)` function. This function basically waits `time` miliseconds before calling `function`. By saying we want to call `redraw` in 10ms, we're creating a function that calls itself over and over again. Roughly 100 times a second! We only need to call this function once to get it going on its own.
 
-**WARN:** Unable to preview web7/arrays/redraw1
+``` js
+//Function that redraws the circles on the canvas and then waits 10ms before calling the function again
+function redraw() {
+    //Get the canvas context
+    var ctx = canvas.getContext("2d"), circle, ind;
+    
+    //Clear the canvas of any previous drawing
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    
+    //Loop through all of our circles
+    for (ind in circles) {
+        //Store circle into temporary variable
+        circle = circles[ind];
+        
+        //Start drawing
+        ctx.beginPath();
+        
+        //Draw an arc. Arguments are x (pixels), y (pixels), radius (pixels), startPoint (radians), endPoint (radians)
+        ctx.arc(circle.x, circle.y, 5, 0, Math.PI * 2);
+        
+        //Fill our arc/circle!
+        ctx.fill();
+    }
+    
+    //Wait 10ms before calling the redraw function again
+    setTimeout(redraw, 10);
+}
+```
 
 But that has simply replicated the code that we just made but in a more complicated state. To add that movement, we must first add `hSpeed` and `vSpeed` variables to the balls that says how fast they are moving in both the horizontal and vertical directions. Add this code to the `addBall` function, right after you set its `x` and `y` values.
 
@@ -122,13 +211,26 @@ circle.vSpeed = Math.random() * 2 - 1;
 
 This picks a random value from -1 to 1 and sets it to each speed to put the ball in a random direction. Then to actually make it move, every time we redraw, we must also add these speed values to the ball's position. Over time, these small values can make it move quite fast!
 
-**WARN:** Unable to preview web7/arrays/drawSpeed
+``` js
+//Add the speed values of the circle to its position
+circle.x += circle.hSpeed;
+circle.y += circle.vSpeed;
+```
 
 ## Making them Bounce
 
 You'll notice that there's nothing to stop the balls from just moving out of the canvas and out of view. We could leave it like this, but really they should stay in the field of view, they just need to bounce off the walls. Time to use an if statement here! Add this little snippet right after we change the positions of the balls in the loop but before we draw them.
 
-**WARN:** Unable to preview web7/arrays/bounce
+``` js
+//If the circle has gone over the bounds of the canvas, bounce!
+if ((circle.x < 0) || (circle.x > canvas.width)) {
+    circle.hSpeed = -circle.hSpeed;
+}
+
+if ((circle.y < 0) || (circle.y > canvas.height)) {
+    circle.vSpeed = -circle.vSpeed;
+}
+```
 
 This basically checks if the `x` value is too far left, by using the expression `x < 0`, and checks if it is too far right by using `x > canvas.width`. If this is the case, it is just about to go out of view, or is out of view, so we need to turn it around. To turn it around, we just flip the speed around with this statement: `hSpeed = -hSpeed;`. The same process goes for the `y` value, but with its respective variables used.
 

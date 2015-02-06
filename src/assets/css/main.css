@@ -958,8 +958,15 @@ body {
 .prev-lesson {
   float: left;
 }
-.codepen {
+.codepen,
+table {
   margin-bottom: 1em;
+}
+table {
+  width: 100%;
+}
+table thead {
+  text-align: left;
 }
 .codepen iframe {
   display: block;

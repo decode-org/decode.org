@@ -28,13 +28,22 @@ HTML is responsible for every website you visit, in a way. It carries informatio
 You can put the syntax down to a few core aspects:
 
 *   There are tags that you write out using the `<` and `>` signs, which open up an element.*   Everything you put inbetween that tag and the closing tag is inside that element, and you can even put more elements within it.
-*   To close an element, just end it with the closing tag by putting a forward slash before its name within the tag.*   Some elements are self closing, and you can't put anything inside them. They have a forward slash before the `>` sign in the tag.*   Finally, there are attributes that you can set within elements. These are set using the `attribute="value"` notation within the tag, after its name. These will come to mean more later on
+*   To close an element, just end it with the closing tag by putting a forward slash before its name within the tag.
+*   Some elements are self closing, and you can't put anything inside them. They have a forward slash before the `>` sign in the tag.
+*   Finally, there are attributes that you can set within elements. These are set using the `attribute="value"` notation within the tag, after its name. These will come to mean more later on
 
 That's pretty much all you need to know to start writing in HTML. Please bear in mind that you need to follow this syntax pretty rigidly. As long as you write with the correct syntax, you won't have too many problems. 
 
 To begin, make a new folder for your project in whatever software you are using, and then make a new file called `index.html`. These `.html` files store HTML data, funnily enough. Then write the following code in your new file
 
-**WARN:** Unable to preview web1/html
+``` html
+<!DOCTYPE html>
+<html>
+    <body>
+        <p>Hello HTML!</p>
+    </body>
+</html>
+```
 
 Alright, so what's going on here? Let's go through the code line by line:
 
@@ -45,6 +54,8 @@ Alright, so what's going on here? Let's go through the code line by line:
 6.  A closing tag for the html element
 
 To display this HTML as you would a website, simply open the file up in your browser. In jsFiddle, you can click the "Run" button up at the top, and in Brackets you can click the lightning bolt up at the top right to start a live preview in Google Chrome. With any luck, once you start this up, you should see the text "Hello HTML!"
+
+{% codepen 552857cabd202944cb3d1c08479846e7 height: 140 %}
 
 ### Some More Elements
 
@@ -60,21 +71,21 @@ You've learned about the `<p>` element for making paragraphs, you can use simila
 
 #### Anchors
 
-<p>Anchors can do a lot, but at first you'll probably use them for links to other pages. Anchors are denoted by the `<a>` tag. All of the text inside that will go to the URL you specify when clicked. To specify the url you use the `href` attribute. So to make a link to google, you would write it like this
-
-``` html
-[Go to Google](http://google.co.nz)
-```
-
-If you use this, you'll notice that it takes you to the link in your current tab/window. To make it open a new tab/window (depending on browser), set the `target` attribute.
+Anchors can do a lot, but at first you'll probably use them for links to other pages. Anchors are denoted by the `<a>` tag. All of the text inside that will go to the URL you specify when clicked. To specify the url you use the `href` attribute. So to make a link to google, you would write it like this
 
 ``` html
 <a href="http://google.co.nz">Go to Google</a>
 ```
 
+If you use this, you'll notice that it takes you to the link in your current tab/window. To make it open a new tab/window (depending on browser), set the `target` attribute.
+
+``` html
+<a href="http://google.co.nz" target="_blank">Go to Google</a>
+```
+
 #### Bold and Italics
 
-If you want to make your text **bold** or _italisized_ with pure HTML, just use the `<b>` and `<i>` tags, it's that simple.
+If you want to make your text **bold** or *italisized* with pure HTML, just use the `<b>` and `<i>` tags, it's that simple.
 
 ``` html
 <b>This is bold</b>, <i>this is in italics!</i>
@@ -83,7 +94,17 @@ If you want to make your text **bold** or _italisized_ with pure HTML, just use 
 ### Putting it Together
 
 Take all of these new elements and put them into one document, you can copy this into your own computer and it will render as planned
-**WARN:** Unable to preview web1/html/final
+
+``` html
+<!DOCTYPE html>
+<html>
+    <body>
+        <h1>A Great Document</h1>
+        <h6>A Subheading</h6>
+        <p>Hello HTML! <b>This is bold</b>, <i>this is in italics!</i> <a href="http://google.co.nz" target="_blank">Go to Google</a></p>
+    </body>
+</html>
+```
 
 ### There You Have It
 
