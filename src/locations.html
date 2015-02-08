@@ -1,0 +1,18 @@
+---
+class: 'locations'
+title: Locations
+---
+<div class="locations-map-container"><div class="location-map"></div></div>
+<div class="locations-description"></div>
+<div class="locations-info">
+  {% for location in site.data.locations %}
+    <section class="location" data-location="{{ location.location | jsonify | xml_escape }}">
+      <h2>{{ location.name }}</h2>
+      <p>{{ location.location.address }}</p>
+      {{ location.description | markdownify }}
+      <ul>{% for contact in location.contact %}
+        <li>{{ contact.name }}: <a href="mailto:{{ contact.email }}">{{ contact.email }}</a></li>
+        {% endfor %}</ul>
+    </section>
+  {% endfor %}
+</div>

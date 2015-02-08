@@ -1093,3 +1093,17 @@ table thead {
 .site-header .site-links a:hover {
   color: #fff2ea;
 }
+.js .locations .locations-info {
+  display: none;
+}
+.js .locations .locations-map-container {
+  position: relative;
+  padding-top: 50%;
+}
+.js .locations .location-map {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
