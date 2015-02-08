@@ -1,7 +1,7 @@
 ---
 title: Setting up FlashPunk
 type: video
-url: flashgame1
+video_url: flash/flashgame1
 ---
 In this video we learn how to set up FlashPunk under FlashDevelop to prepare for some awesome game development.
 

@@ -1,0 +1,20 @@
+{
+    "files": {"-src-Main.as":{"path":"\\src\\Main.as","name":"\\src\\Main.as"},"-src-GameWorld.as":{"path":"\\src\\GameWorld.as","name":"\\src\\GameWorld.as"},"-src-Player.as":{"path":"\\src\\Player.as","name":"\\src\\Player.as"}},
+    "video_id": "nDKK9W6ccVc",
+    "transitions": [
+        {"to": 0, "time": 0},
+        {"to": 0, "time": 0},
+        {"to": 1, "time": 49},
+        {"to": 0, "time": 136},
+        {"to": 1, "time": 145},
+        {"to": 0, "time": 180},
+        {"to": 1, "time": 215},
+        {"to": 0, "time": 267},
+        {"to": 1, "time": 296},
+        {"to": 0, "time": 343},
+        {"to": 1, "time": 375},
+        {"to": 0, "time": 427},
+        {"to": 1, "time": 454},
+        {"to": 0, "time": 645}
+    ]
+}

@@ -1,6 +1,10 @@
 ---
 layout: default
 ---
+{% if page.type == 'video' %}
+  <div class="lesson-video" data-video-config="/assets/files/video-config/{{ page.video_url }}"></div>
+{% endif %}
+
 {% assign set_key = page.relative_path|replace:'_lessons/','' %}
 {% assign set_keys = set_key|split:'/' %}
 {% assign technology = set_keys[0] %}

@@ -1,0 +1,22 @@
+{
+    "files": {"-src-Main.as":{"path":"\\src\\Main.as","name":"\\src\\Main.as"},"-src-GameWorld.as":{"path":"\\src\\GameWorld.as","name":"\\src\\GameWorld.as"},"-src-Player.as":{"path":"\\src\\Player.as","name":"\\src\\Player.as"},"-src-Bullet.as":{"path":"\\src\\Bullet.as","name":"\\src\\Bullet.as"}},
+    "video_id": "-nemi9g2moI",
+    "transitions": [
+        {"to": 0, "time": 0},
+        {"to": 0, "time": 0},
+        {"to": 1, "time": 184},
+        {"to": 0, "time": 459},
+        {"to": 1, "time": 469},
+        {"to": 0, "time": 491},
+        {"to": 1, "time": 513},
+        {"to": 0, "time": 534},
+        {"to": 1, "time": 541},
+        {"to": 0, "time": 570},
+        {"to": 1, "time": 600},
+        {"to": 0, "time": 623},
+        {"to": 1, "time": 660},
+        {"to": 0, "time": 772},
+        {"to": 1, "time": 796},
+        {"to": 0, "time": 828}
+    ]
+}
