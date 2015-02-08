@@ -1,10 +1,3 @@
-$(document).ready(function() {
-  console.log('Decode is going ;)');
-
-  $('.lesson-video').each(function() {
-    createVideo($(this), $(this).data('video-config'));
-  });
-});
 var Decode = {
     pages: {
         common: function() {
@@ -25,10 +18,69 @@ var Decode = {
             });
           });
 
-        $('.lesson-video').each(function() {
-          createVideo($(this), $(this).data('video-config'));
-        });
+          $('.lesson-video').each(function() {
+            createVideo($(this), $(this).data('video-config'));
+          });
+
+          $('.general-contact').each(function(event) {
+            var form = $(this),
+                name = form.find('input[name="name"]'),
+                email = form.find('input[name="_replyto"]'),
+                url = form.attr('action'),
+                response = form.find('.response');
+
+
+            $(this).submit(function(event) {
+              event.preventDefault();
+              var data = form.serializeObject();
+
+              if (!data.name) {
+                response.text('Please enter your name').addClass('error').removeClass('success');
+                return;
+              }
+
+              if ((!data._replyto) || (!/^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/.test(data._replyto))) {
+                response.text('Please enter a valid email address').addClass('error').removeClass('success');
+                return;
+              }
+
+              data._subject = data._subject.replace('//NAME//', data.name);
+
+              response.text('Pending...').removeClass('error').removeClass('success');
+              form.find('input[type="submit"]').prop('disabled', true);
+
+              var timeout = false;
+
+              //Prevent the spamming with a 5s timeout
+              setTimeout(function() {
+                if (timeout) {
+                  form.find('input[type="submit"]').prop('disabled', false);
+                }
+                timeout = true;
+              }, 5000);
+
+              $.ajax({
+                url: url,
+                method: "POST",
+                data: data,
+                dataType: 'json',
+                success: function(data) {
+                  response.text('Thank you for your message').removeClass('error').addClass('success');
+                },
+                error: function(error) {
+                  response.text('Something went wrong. Please try again or email decode@decode.org.nz.').addClass('error').removeClass('success');
+                },
+                complete: function() {
+                  if (timeout) {
+                    form.find('input[type="submit"]').prop('disabled', false);
+                  }
+                  timeout = true;
+                }
+              });
+            });
+          });
       },
+
       locations: function() {
         var markers = [];
 

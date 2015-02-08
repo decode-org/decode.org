@@ -392,7 +392,8 @@ th {
   display: table;
 }
 .clearfix:after,
-.lesson-collections:after {
+.lesson-collections:after,
+.form-row:after {
   content: ' ';
   /* Older browser do not support empty content */
   visibility: hidden;
@@ -816,6 +817,8 @@ a:focus {
   -ms-user-select: none;
   user-select: none;
 }
+/* General Layout
+   ========================================================================== */
 html {
   position: absolute;
   left: 0;
@@ -841,6 +844,45 @@ body {
   max-width: 400px;
   height: auto;
 }
+.codepen,
+table {
+  margin-bottom: 1em;
+}
+table {
+  width: 100%;
+}
+table thead {
+  text-align: left;
+}
+.codepen iframe {
+  display: block;
+}
+.hero {
+  margin-bottom: 20px;
+  height: 250px;
+  background: #ffb384;
+}
+.hero .content-wrapper {
+  position: relative;
+  height: 100%;
+}
+.hero h1 {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  right: 20px;
+  color: #ffffff;
+}
+@media only screen and (min-width: 1281px) {
+  .subpage-nav {
+    position: absolute;
+    margin-left: -220px;
+    z-index: 10;
+    width: 200px;
+  }
+}
+/* Lessons
+   ========================================================================== */
 .lesson-collections .lesson-link {
   float: left;
   width: 100%;
@@ -892,61 +934,6 @@ body {
   -webkit-filter: contrast(100%) brightness(100%);
           filter: contrast(100%) brightness(100%);
 }
-.hero {
-  margin-bottom: 20px;
-  height: 250px;
-  background: #ffb384;
-}
-.hero .content-wrapper {
-  position: relative;
-  height: 100%;
-}
-.hero h1 {
-  position: absolute;
-  bottom: 20px;
-  left: 20px;
-  right: 20px;
-  color: #ffffff;
-}
-.lesson-set,
-.lesson-card,
-.subpage-nav {
-  color: #767676;
-}
-.lesson-set h3,
-.lesson-card h3,
-.subpage-nav h3 {
-  margin-top: 0;
-  font-size: 0.8em;
-  text-transform: uppercase;
-  font-weight: bold;
-}
-.lesson-set h5,
-.lesson-card h5,
-.subpage-nav h5 {
-  margin: 0.4em 0;
-}
-.lesson-set ul,
-.lesson-card ul,
-.subpage-nav ul {
-  list-style-type: none;
-  padding: 0;
-}
-.lesson-set li,
-.lesson-card li,
-.subpage-nav li {
-  display: block;
-  font-size: 0.8em;
-  font-weight: bold;
-}
-@media only screen and (min-width: 1281px) {
-  .subpage-nav {
-    position: absolute;
-    margin-left: -220px;
-    z-index: 10;
-    width: 200px;
-  }
-}
 .next-lesson,
 .prev-lesson {
   width: 50%;
@@ -958,18 +945,126 @@ body {
 .prev-lesson {
   float: left;
 }
-.codepen,
-table {
-  margin-bottom: 1em;
+.lesson-set,
+.subpage-nav,
+.lesson-card {
+  color: #767676;
 }
-table {
-  width: 100%;
+.lesson-set h3,
+.subpage-nav h3,
+.lesson-card h3 {
+  margin-top: 0;
+  font-size: 0.8em;
+  text-transform: uppercase;
+  font-weight: bold;
 }
-table thead {
-  text-align: left;
+.lesson-set h5,
+.subpage-nav h5,
+.lesson-card h5 {
+  margin: 0.4em 0;
 }
-.codepen iframe {
+.lesson-set ul,
+.subpage-nav ul,
+.lesson-card ul {
+  list-style-type: none;
+  padding: 0;
+}
+.lesson-set li,
+.subpage-nav li,
+.lesson-card li {
   display: block;
+  font-size: 0.8em;
+  font-weight: bold;
+}
+/* Forms
+   ========================================================================== */
+label {
+  display: block;
+  box-sizing: border-box;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 0.8em;
+  color: #767676;
+}
+input[type="checkbox"],
+input[type="radio"] {
+  margin-right: 5px;
+}
+.form-control {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 5px;
+  border: none;
+  border-color: #bfbfbf;
+  border-bottom: 2px solid #bfbfbf;
+  background: transparent;
+  -webkit-transition: border-color 0.5s;
+          transition: border-color 0.5s;
+}
+textarea.form-control {
+  height: 5em;
+  border: 2px solid #bfbfbf;
+}
+.form-control:focus {
+  outline: 0;
+  border-color: #ff741e;
+}
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0px 1000px #f4f4f4 inset;
+}
+.form-row {
+  margin: 10px 0;
+}
+.response.error {
+  color: #c11a1a;
+}
+.response.success {
+  color: #2bb92b;
+}
+@media only screen and (min-width:769px) {
+  label {
+    display: inline;
+    padding-right: 10px;
+    padding-top: 5px;
+    width: 25%;
+    float: left;
+    text-align: right;
+  }
+  .form-row > *:only-child {
+    margin-left: 25%;
+  }
+  .form-row > label:only-child {
+    width: 50%;
+    padding-top: 0;
+    text-align: left;
+  }
+  .form-control {
+    width: 50%;
+    float: left;
+  }
+}
+input[type="submit"],
+button {
+  padding: 10px;
+  line-height: 1em;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #ffffff;
+  font-weight: bold;
+  background-color: #ffb384;
+  border: none;
+}
+input[type="submit"]:active,
+button:active {
+  outline: none;
+  background-color: #ff9351;
+  -webkit-transform: scale(0.95);
+      -ms-transform: scale(0.95);
+          transform: scale(0.95);
+}
+input[type="submit"]:disabled,
+button:disabled {
+  background-color: #767676;
 }
 .controls {
   height: 32px;

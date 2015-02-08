@@ -1,3 +1,6 @@
+/* General Layout
+   ========================================================================== */
+
 html {
   position: absolute;
   left: 0;
@@ -32,6 +35,60 @@ body {
     }
   }
 }
+
+.codepen, table {
+  margin-bottom: 1em;
+}
+
+table {
+  width: 100%;
+
+  thead {
+    text-align: left;
+  }
+}
+
+.codepen iframe {
+  display: block;
+}
+
+.hero {
+  margin-bottom: @punit;
+
+  height: 250px;
+
+  background: @header-colour;
+
+  .content-wrapper {
+    position: relative;
+
+    height: 100%;
+  }
+
+  h1 {
+    position: absolute;
+    bottom: @punit;
+    left: @punit;
+    right: @punit;
+
+    color: @brand-white;
+  }
+}
+
+.subpage-nav {
+  &:extend(.lesson-set all);
+
+  @media @screen and (min-width: 1281px) {
+    position: absolute;
+    margin-left: -200px - @punit;
+    z-index: 10;
+
+    width: 200px;
+  }
+}
+
+/* Lessons
+   ========================================================================== */
 
 .lesson-collections {
   &:extend(.wrapper-nopad);
@@ -93,27 +150,17 @@ body {
   }
 }
 
-.hero {
-  margin-bottom: @punit;
+.next-lesson, .prev-lesson {
+  width: 50%;
+}
 
-  height: 250px;
+.next-lesson {
+  float: right;
+  text-align: right;
+}
 
-  background: @header-colour;
-
-  .content-wrapper {
-    position: relative;
-
-    height: 100%;
-  }
-
-  h1 {
-    position: absolute;
-    bottom: @punit;
-    left: @punit;
-    right: @punit;
-
-    color: @brand-white;
-  }
+.prev-lesson {
+  float: left;
 }
 
 .lesson-set {
@@ -147,43 +194,125 @@ body {
   &:extend(.lesson-set all);
 }
 
-.subpage-nav {
-  &:extend(.lesson-set all);
+/* Forms
+   ========================================================================== */
 
-  @media @screen and (min-width: 1281px) {
-    position: absolute;
-    margin-left: -200px - @punit;
-    z-index: 10;
+label {
+  display: block;
+  box-sizing: border-box;
 
-    width: 200px;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 0.8em;
+  color: @brand-grey;
+}
+
+input[type="checkbox"], input[type="radio"] {
+  margin-right: 5px;
+}
+
+.form-control {
+  box-sizing: border-box;
+
+  width: 100%;
+  padding: 5px;
+
+  border: none;
+  border-color: @brand-light-grey;
+  border-bottom: 2px solid @brand-light-grey;
+  background: transparent;
+
+  transition: border-color 0.5s;
+
+  textarea& {
+    height: 5em;
+    border: 2px solid @brand-light-grey;
+  }
+
+  &:focus {
+    outline: 0;
+
+    border-color: @brand-primary-dark;
   }
 }
 
-.next-lesson, .prev-lesson {
-  width: 50%;
+// Hack of the century
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 1000px @background-colour inset;
 }
 
-.next-lesson {
-  float: right;
-  text-align: right;
+.form-row {
+  &:extend(.clearfix all);
+
+  margin: @punit / 2 0;
 }
 
-.prev-lesson {
-  float: left;
+.response {
+  &.error {
+    color: #c11a1a;
+  }
+
+  &.success {
+    color: #2bb92b;
+  }
 }
 
-.codepen, table {
-  margin-bottom: 1em;
-}
+@media @medium {
+  label {
+    display: inline;
+    padding-right: 10px;
+    padding-top: 5px;
+    width: 25%;
 
-table {
-  width: 100%;
+    float: left;
 
-  thead {
+    text-align: right;
+  }
+
+  .form-row > *:only-child {
+    margin-left: 25%;
+  }
+
+  .form-row > label:only-child {
+    width: 50%;
+    padding-top: 0;
+
     text-align: left;
   }
+
+  .form-control {
+    width: 50%;
+
+    float: left;
+  }
 }
 
-.codepen iframe {
-  display: block;
+input[type="submit"], button {
+
+  padding: 10px;
+  line-height: 1em;
+
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: @brand-white;
+  font-weight: bold;
+
+  background-color: @brand-primary;
+
+  border: none;
+
+  &:active {
+    outline: none;
+
+    background-color: darken(@brand-primary, 10%);
+    transform: scale(0.95);
+  }
+
+  &:disabled {
+    background-color: @brand-grey;
+  }
 }
+
+
+
+
