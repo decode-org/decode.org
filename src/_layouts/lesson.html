@@ -22,7 +22,7 @@ layout: default
       {% assign lesson = lesson[0] %}
       {% if current %}{% assign next = lesson %}{% assign current = false %}{% endif %}
       {% if lesson_path != page.relative_path %}
-        <li><a href="{{ lesson.url }}" />{{ lesson.title }}</a></li>
+        <li><a href="{{ lesson.url }}">{{ lesson.title }}</a></li>
       {% else %}
         {% assign current = true %}
         {% if past %}{% assign previous = past %}{% endif %}
