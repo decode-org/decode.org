@@ -21,6 +21,8 @@ var reload = browserSync.reload;
 var bs;
 // Execute shell commands
 var spawn = require('child_process').spawn;
+// Run Sequence
+var sequence = require('run-sequence');
 
 var onError = function (err) {
     console.log(err);
@@ -110,8 +112,7 @@ gulp.task('html', ['styles'], function () {
     .pipe($.if('*.js', $.uglify({preserveComments: 'some'})))
     // Minify CSS
     .pipe($.if('*.css', $.minifyCss()))
-    // Start cache busting the files
-    .pipe($.revAll({ ignore: ['.eot', '.svg', '.ttf', '.woff'] }))
+    .pipe($.revAll({ ignore: ['favicon.ico'] }))
     .pipe(assets.restore())
     // Conctenate your files based on what you specified in _layout/header.html
     .pipe($.useref())
@@ -252,5 +253,5 @@ gulp.task('build', ['jekyll:prod', 'styles'], function () {});
 // Builds your site with the 'build' command and then runs all the optimizations on
 // it and outputs it to './site'
 gulp.task('publish', ['build'], function () {
-  gulp.start('html', 'copy', 'images', 'fonts');
+  sequence('clean:prod', ['html', 'copy', 'images', 'fonts']);
 });
