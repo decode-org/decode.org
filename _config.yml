@@ -18,7 +18,7 @@ author:
   twitter: http://twitter.com/pinpickle
 
 # general setting for Jekyll
-googleAnalytics: UA-XXXXX-X
+google_analytics: UA-43168673-1
 
 # _config.build.yml overwrites these options when you run `gulp build`
 # Enables future posts (posts with dates in the future) and drafts
