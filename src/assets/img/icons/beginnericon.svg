@@ -6,11 +6,21 @@
     <defs></defs>
     <g id="Exportables" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
         <g id="beginnericon" sketch:type="MSArtboardGroup">
-            <rect id="Rectangle-3" fill="#39EC48" sketch:type="MSShapeGroup" x="143" y="151" width="71" height="71"></rect>
-            <rect id="Rectangle-5" fill="#39EC48" sketch:type="MSShapeGroup" x="24" y="30" width="71" height="71"></rect>
-            <rect id="Rectangle-1" fill="#E46969" sketch:type="MSShapeGroup" x="24" y="151" width="71" height="71"></rect>
-            <rect id="Rectangle-4" fill="#E46969" sketch:type="MSShapeGroup" x="143" y="30" width="71" height="71"></rect>
-            <rect id="Rectangle-2" stroke="#FFFFFF" stroke-width="16" fill="#7AB8F3" sketch:type="MSShapeGroup" transform="translate(125.000000, 125.000000) rotate(-45.000000) translate(-125.000000, -125.000000) " x="72" y="72" width="106" height="106"></rect>
+            <g id="Beginners" sketch:type="MSLayerGroup">
+                <g id="Group" sketch:type="MSShapeGroup">
+                    <path d="M95,0 L0,0 L0,95 L38.4,95 L95,38.4 L95,0" id="Shape" fill="#3AEC49"></path>
+                    <path d="M250,155 L211.6,155 L155,211.6 L155,250 L250,250 L250,155" id="Shape" fill="#3AEC49"></path>
+                    <path d="M38.4,155 L0,155 L0,250 L95,250 L95,211.6 L38.4,155" id="Shape" fill="#E46969"></path>
+                    <path d="M250,0 L155,0 L155,38.4 L211.6,95 L250,95 L250,0" id="Shape" fill="#E46969"></path>
+                    <path d="M125,31.1 L125,31.1 L31.1,125 L125,218.9 L218.9,125 L125,31.1" id="Shape" fill="#7AB8F2"></path>
+                    <path d="M155,188.9 L125,218.9 L95,188.9 L95,211.5 L113.7,230.2 L125,241.5 L136.3,230.2 L155,211.5 L155,188.9 M61.1,95 L38.4,95 L19.7,113.7 L8.4,125 L19.7,136.3 L38.4,155 L61,155 L31,125 L61.1,95 M211.6,95 L189,95 L219,125 L189,155 L211.6,155 L230.3,136.3 L241.6,125 L230.3,113.7 L211.6,95 M125,8.4 L113.7,19.7 L95,38.4 L95,61 L125,31 L155,61 L155,38.4 L136.3,19.7 L125,8.4" id="Shape" opacity="0" fill="#000000"></path>
+                    <path d="M95,38.4 L38.4,95 L61.1,95 L95,61.1 L95,38.4" id="Shape" opacity="0" fill="#000000"></path>
+                    <path d="M211.6,155 L188.9,155 L155,188.9 L155,211.6 L211.6,155" id="Shape" opacity="0" fill="#000000"></path>
+                    <path d="M61.1,155 L38.4,155 L95,211.6 L95,188.9 L61.1,155" id="Shape" opacity="0" fill="#000000"></path>
+                    <path d="M155,38.4 L155,61.1 L188.9,95 L211.6,95 L155,38.4" id="Shape" opacity="0" fill="#000000"></path>
+                    <path d="M125,31.1 L218.9,125 L125,218.9 L31.1,125 L125,31.1 L95,61.1 L61.1,95 L31.1,125 L61.1,155 L95,188.9 L125,218.9 L155,188.9 L188.9,155 L218.9,125 L188.9,95 L155,61.1 L125,31.1" id="Shape" fill="#7AB8F2"></path>
+                </g>
+            </g>
         </g>
     </g>
 </svg>
