@@ -1412,6 +1412,8 @@ a.button.light:active,
 }
 .site-footer .social-links a {
   font-size: 50px;
+  -webkit-transition: color 0.3s;
+          transition: color 0.3s;
 }
 .site-footer .social-links a:hover.facebook {
   color: #3b5998;
