@@ -1,8 +1,6 @@
 ---
 title: Annotations and Enumerated Types
 ---
-## Introduction
-
 Although these features are a rather small aspect of Java, they can be quite useful and powerful. Annotations are a way of applying metadata to your variables,
 methods, and classes, while enumerated types are useful for organizing functions that certian classes can perform. Although there isn't a large deal to these aspects,
 they can be darn useful in some cases. In this tutorial, we will discuss how to use them.

@@ -1,9 +1,9 @@
 # Title, decription, tagline and URL for your site
 # Can be used in your theme by calling 'site.title' and so on
-title: Decode Website
+title: Decode
 description: Home for the Decode project
-tagline:
-url: localhost:3000
+tagline: Anyone Can Make Software
+url: http://localhost:3000
 
 # Used so Jekyll outputs the site correctly so Gulp can do what it wants
 source: src
@@ -61,6 +61,9 @@ defaults:
       type: 'lessons'
     values:
       layout: 'lesson'
+
+gems:
+  - jekyll-sitemap
 
 # Markdown library
 markdown: redcarpet
