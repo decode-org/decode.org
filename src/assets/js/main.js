@@ -22,6 +22,10 @@ var Decode = {
             createVideo($(this), $(this).data('video-config'));
           });
 
+          $('.menu-button').click(function() {
+            $('body').toggleClass('menu-active');
+          });
+
           $('.general-contact').each(function(event) {
             var form = $(this),
                 name = form.find('input[name="name"]'),

@@ -21,6 +21,7 @@
 
   .content-wrapper {
     position: relative;
+    height: 100%;
   }
 
   .logo-link {
@@ -40,12 +41,51 @@
     width: auto;
   }
 
-  .site-links {
+  .menu-button {
     position: absolute;
-    right: 0;
+    right: @punit;
+    top: 0;
     margin: 0;
 
-    height: 100%;
+    height: @header-height;
+    line-height: @header-height;
+
+    color: @brand-white;
+    font-size: 40px;
+
+    &:extend(.icon);
+    &:before {
+      &:extend(.icon-menu:before);
+    }
+  }
+
+  .site-nav {
+    position: absolute;
+    top: @header-height;
+    left: 0;
+    z-index: -1;
+
+    width: 100%;
+
+    background: @brand-primary;
+
+    opacity: 0;
+    visibility: hidden;
+    transform: translate(0, -100%);
+
+    transition-property: opacity, visibility, transform;
+    transition-duration: 0.3s;
+
+    .menu-active & {
+      opacity: 1;
+      visibility: visible;
+      transform: translate(0, 0%);
+    }
+  }
+
+  .site-links {
+    margin: 0;
+
     padding: 0;
 
     list-style-type: none;
@@ -67,6 +107,27 @@
 
     a:hover {
       color: @brand-primary-light;
+    }
+  }
+
+  @media @medium {
+    .menu-button {
+      display: none;
+    }
+
+    .site-nav {
+      position: static;
+
+      transition: none;
+      transform: none;
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .site-links {
+      position: absolute;
+      right: 0;
+      margin: 0;
     }
   }
 }
