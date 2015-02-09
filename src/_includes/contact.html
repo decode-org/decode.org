@@ -5,6 +5,10 @@
 {% endif %}
 
 <form class="general-contact" id="general-contact-{{ contactid }}" action="//formspree.io/decode@decode.org.nz" method="post">
+  <div class="general-contact-description">
+    <h2>Contact</h2>
+    <p>Email <a href="mailto:decode@decode.org.nz">decode@decode.org.nz</a> or use the form below.</p>
+  </div>
   <div class="form-row">
     <label for="general-contact-name-{{ contactid }}">Name</label>
     <input class="form-control" type="text" name="name" id="general-contact-name-{{ contactid }}" placeholder="Enter your name" required/>

@@ -1,5 +1,6 @@
 ---
 title: Run Decode
+contact: true
 ---
 
 Decode is an open book, completely free for anyone who wants to run it. Running Decode takes the form of Decode sessions. These sessions are open and flexible and follow a series of values rather than a strict model. Here are those values:

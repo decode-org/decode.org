@@ -1009,6 +1009,9 @@ textarea.form-control {
   outline: 0;
   border-color: #ff741e;
 }
+.general-contact-description {
+  text-align: center;
+}
 input:-webkit-autofill {
   -webkit-box-shadow: 0 0 0px 1000px #f4f4f4 inset;
 }

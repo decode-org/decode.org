@@ -23,6 +23,9 @@ layout: base
   </div>
   <div class="content-wrapper clearfix">
     {{ content }}
+    {% if page.contact %}
+      {% include contact.html %}
+    {% endif %}
   </div>
 </div>
 
