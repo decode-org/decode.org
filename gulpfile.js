@@ -33,7 +33,7 @@ var onError = function (err) {
 gulp.task('clean:dev', del.bind(null, ['']));
 
 // Deletes the directory that the optimized site is output to
-gulp.task('clean:prod', del.bind(null, ['site']));
+gulp.task('clean:prod', del.bind(null, ['site', '_tmp', 'src/.jekyll-metadata']));
 
 // Runs the build command for Jekyll to compile the site locally
 // This will build the site with the production settings
@@ -70,13 +70,14 @@ gulp.task('styles', function () {
 gulp.task('images', function () {
   return gulp.src('src/assets/img/**')
     .pipe($.changed('site/assets/img'))
-    .pipe($.imagemin({
+    /*.pipe($.imagemin({
       // Lossless conversion to progressive JPGs
       progressive: true,
       // Interlace GIFs for progressive rendering
       interlaced: true
-    }))
-    .pipe(gulp.dest('site/assets/img'))
+      svgo: {
+    }))*/ //Until we can get SVGO to play nice
+    .pipe(gulp.dest('_tmp/assets/img'))
     .pipe($.size({title: 'images'}));
 });
 
@@ -88,17 +89,17 @@ gulp.task('assets', function() {
 });
 
 
-// Copy over fonts to the 'site' directory
-gulp.task('fonts', function () {
-  return gulp.src('src/assets/fonts/**')
-    .pipe(gulp.dest('site/assets/fonts'))
-    .pipe($.size({ title: 'fonts' }));
+// Copy over extra assets to the site
+gulp.task('assets:prod', function () {
+  return gulp.src(['src/assets/**', '!src/assets/js/**', '!src/assets/css/**', '!src/assets/img/**'])
+    .pipe(gulp.dest('_tmp/assets'))
+    .pipe($.size({ title: 'extra assets' }));
 });
 
 // Copy xml and txt files to the 'site' directory
 gulp.task('copy', function () {
   return gulp.src(['serve/*.txt', 'serve/*.xml', 'serve/favicon.ico'])
-    .pipe(gulp.dest('site'))
+    .pipe(gulp.dest('_tmp'))
     .pipe($.size({ title: 'xml & txt' }))
 });
 
@@ -112,12 +113,9 @@ gulp.task('html', ['styles'], function () {
     .pipe($.if('*.js', $.uglify({preserveComments: 'some'})))
     // Minify CSS
     .pipe($.if('*.css', $.minifyCss()))
-    .pipe($.revAll({ ignore: ['favicon.ico'] }))
     .pipe(assets.restore())
     // Conctenate your files based on what you specified in _layout/header.html
     .pipe($.useref())
-    // Replace the asset names with their cache busted names
-    .pipe($.revReplace())
     // Minify HTML
     .pipe($.if('*.html', $.htmlmin({
       removeComments: true,
@@ -129,8 +127,15 @@ gulp.task('html', ['styles'], function () {
       removeRedundantAttributes: true
     })))
     // Send the output to the correct folder
-    .pipe(gulp.dest('site'))
+    .pipe(gulp.dest('_tmp'))
     .pipe($.size({title: 'optimizations'}));
+});
+
+gulp.task('rev', function() {
+  return gulp.src('_tmp/**')
+    .pipe($.revAll({ignore: ['.html', '.xml', 'favicon.ico', /^\/assets\/files\//, '.txt']}))
+    .pipe($.revReplace())
+    .pipe(gulp.dest('site'));
 });
 
 // Task to deploy your site to Amazon S3 and Cloudfront
@@ -253,5 +258,5 @@ gulp.task('build', ['jekyll:prod', 'styles'], function () {});
 // Builds your site with the 'build' command and then runs all the optimizations on
 // it and outputs it to './site'
 gulp.task('publish', ['build'], function () {
-  sequence('clean:prod', ['html', 'copy', 'images', 'fonts']);
+  sequence('clean:prod', ['html', 'copy', 'images', 'assets:prod'], 'rev');
 });

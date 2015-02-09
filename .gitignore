@@ -71,3 +71,4 @@ rsync-credentials.json
 
 bower
 .jekyll-metadata
+_tmp
