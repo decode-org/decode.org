@@ -27,7 +27,7 @@ This is experimental, no lies here. Some things are bound to go wrong and that's
 
 # Where to from here?
 
-If you like what you see and want to be a part of this, here are the steps we want to take with you so that you get set up smoothly:
+If you want to get involved but can't offer a physical venue, simply use the contact form below and outline what it is you want to do, such as being a mentor at sessions. If you can offer a venue, such as at a school, read on:
 
 1.  You'll express interest by contacting us (there's a form at the bottom of this page). We'll organise a meeting with a Decode representative just to make sure we're all on the same page.
 2.  If you're a school, it would be best to find a student to take charge. Someone who is passionate about programming and knows enough to keep Decode sessions running. This helps to make sessions more accessible for other students - there will always be at least one of these people. It may take the first couple of sessions to find out who they are.

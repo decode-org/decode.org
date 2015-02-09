@@ -2,6 +2,7 @@
 class: 'locations'
 title: Locations
 ---
+<p>Select a location from the map below. More interested in helping out? Check out the <a href="/run/">Run page</a>.</p>
 <div class="locations-map-container"><div class="location-map"></div></div>
 <div class="locations-description"></div>
 <div class="locations-info">
@@ -10,6 +11,7 @@ title: Locations
       <h2>{{ location.name }}</h2>
       <p>{{ location.location.address }}</p>
       {{ location.description | markdownify }}
+      <h3>Contact</h3>
       <ul>{% for contact in location.contact %}
         <li>{{ contact.name }}: <a href="mailto:{{ contact.email }}">{{ contact.email }}</a></li>
         {% endfor %}</ul>
