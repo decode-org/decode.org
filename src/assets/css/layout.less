@@ -11,15 +11,15 @@ html {
 }
 
 body {
-  position: relative;
-  height: 1px;
-
-  background: @background-colour;
-  min-height: 100%;
+  height: 100%;
 }
 
 .site-content {
+  position: relative;
+
   padding-top: @header-height;
+  min-height: 100%;
+  box-sizing: border-box;
 
   .content-wrapper {
     position: relative;
