@@ -1,8 +1,48 @@
 ---
-layout: default
+layout: base
 title: Home
 contact: true
+class: home
 ---
-<h1>Decode</h1>
-<p>This is a test</p>
-<p>This again twice. Yes</p>
+{% include header.html %}
+
+<div class="home-hero">
+  <div class="phone-holder">
+    <div class="inner"></div>
+    <div class="phone-text">Computers aren't difficult<br/>
+      <br />
+      Let's tackle them, together</div>
+  </div>
+</div>
+<div class="home-row">
+  <div class="content-wrapper">
+    <h1>Code has passed us by</h1>
+    <p>And it's no secret. Technology has become something so easy to access but so easy to become a consumer of, the world has taken that mentality on. Decode, a project based in New Zealand is one that tries to reverse that mentality, empowering people with technology so that they may use it and it may not use them.</p>
+  </div>
+</div>
+<div class="home-row sessions-row">
+  <div class="content-wrapper">
+    <h2>Sessions</h2>
+    <p>Decode supplies a model for schools and other organisations to run sessions that allow students to explore technology in a way that they enjoy, and a way that allows them to learn a lot. You can find a local session today, or volunteer your time to make sessions better. This could be in the form of running your own sessions, or joining a current one as a mentor.</p>
+    <p><a class="button">Find a Session</a><a class="button">Volunteer</a></p>
+  </div>
+</div>
+<div class="home-row lessons-row">
+  <div class="content-wrapper">
+    <h2>Learn Online</h2>
+    <p>Either as a tool for sessions or for anyone who wants to learn more about coding and computers in general, we're populating an archive of valuable lessons. Start now by going to the learn page or choosing a category right here.</p>
+  </div>
+</div>
+<div class="home-row video-row">
+  <div class="content-wrapper">
+    <div class="video-holder">
+      <iframe src="https://www.youtube.com/embed/-rgSwX0cEZE" frameborder="0" allowfullscreen></iframe>
+    </div>
+  </div>
+</div>
+<div class="home-row contact-row">
+  <div class="content-wrapper">
+    {% include contact.html %}
+  </div>
+</div>
+

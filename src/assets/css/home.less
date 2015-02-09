@@ -1,0 +1,84 @@
+.home {
+  .site-content {
+    padding-top: 0;
+  }
+
+  .home-hero {
+    height: 100%;
+
+    background-color: @brand-primary;
+  }
+
+  .phone-holder {
+    width: 240px;
+    background-color: #fff;
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+
+    border-radius: 10px;
+
+    .inner {
+      padding-top: 150%;
+    }
+
+    .phone-text {
+      position: absolute;
+      left: @punit;
+      top: @punit;
+      right: @punit;
+      bottom: @punit;
+
+      padding: @punit / 2;
+
+      background-color: @brand-primary;
+
+      font-size: 0.8em;
+      color: @brand-white;
+      font-family: 'Courier', monospace;
+
+      &:after {
+        content: '_';
+      }
+    }
+  }
+
+  .home-row {
+    padding: @punit * 6 0;
+
+    background-size: cover;
+    background-position: center;
+
+    text-align: center;
+  }
+
+  a.button {
+    margin-left: @punit;
+    margin-right: @punit;
+  }
+
+  .sessions-row {
+    background-image: url(../img/kids-on-pi.jpg);
+
+    color: @brand-white;
+
+
+  }
+
+  .lessons-row {
+  }
+
+  .video-row {
+    background-color: @brand-primary;
+  }
+
+  h2 {
+    &:extend(h1 all);
+  }
+
+  h1, h2 {
+    text-align: center;
+  }
+}
