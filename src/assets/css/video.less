@@ -2,12 +2,12 @@
     height: 32px;
     line-height: 32px;
     background-color: @brand-black;
-    font-family: montserrat, sans-serif;
+    font-family: @font-heading;
     position: relative;
 }
 
 .play-button {
-    color: @brand-primary;
+    color: @brand-secondary;
     width: 32px;
     height: 100%;
     text-align: center;
@@ -17,12 +17,12 @@
 }
 
 .play-button.running {
-    color: #ff2222;
+    color: @brand-primary;
 }
 
 .current-playing {
     height: 32px;
-    font-family: montserrat, sans-serif;
+    font-family: @font-heading;
     position: relative;
     line-height: 32px;
 }
@@ -41,18 +41,18 @@
     left: 32px;
     right: 64px;
     height: 100%;
-    background: @background-colour;
+    background: @brand-white;
     cursor: pointer;
 }
 
 .buffered {
     position: absolute;
     height: 100%;
-    background-color: @brand-white;
+    background-color: @brand-secondary;
 }
 
 .needle {
-    width: 1px;
+    width: 2px;
     position: absolute;
     left: 0;
     background: @brand-primary;

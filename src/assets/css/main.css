@@ -844,6 +844,7 @@ body {
   padding-top: 64px;
   min-height: 100%;
   box-sizing: border-box;
+  background-color: #f4f4f4;
 }
 .site-content .content-wrapper {
   position: relative;
@@ -1211,11 +1212,11 @@ a.button.light:active,
   height: 32px;
   line-height: 32px;
   background-color: #272727;
-  font-family: montserrat, sans-serif;
+  font-family: 'proxima-nova', 'Helvetica Neue', Arial, sans-serif;
   position: relative;
 }
 .play-button {
-  color: #ffb384;
+  color: #27b6d8;
   width: 32px;
   height: 100%;
   text-align: center;
@@ -1224,11 +1225,11 @@ a.button.light:active,
   cursor: pointer;
 }
 .play-button.running {
-  color: #ff2222;
+  color: #ffb384;
 }
 .current-playing {
   height: 32px;
-  font-family: montserrat, sans-serif;
+  font-family: 'proxima-nova', 'Helvetica Neue', Arial, sans-serif;
   position: relative;
   line-height: 32px;
 }
@@ -1245,16 +1246,16 @@ a.button.light:active,
   left: 32px;
   right: 64px;
   height: 100%;
-  background: #f4f4f4;
+  background: #ffffff;
   cursor: pointer;
 }
 .buffered {
   position: absolute;
   height: 100%;
-  background-color: #ffffff;
+  background-color: #27b6d8;
 }
 .needle {
-  width: 1px;
+  width: 2px;
   position: absolute;
   left: 0;
   background: #ffb384;
