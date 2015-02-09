@@ -15,11 +15,9 @@ public class FileExample
 }
 ```
 
-The first line, you will have the `**package**` keyword, followed by the name of your folder. This is quite useful for sorting out your files.
+The first line, you will have the `package` keyword, followed by the name of your folder. This is quite useful for sorting out your files.
 
-The next line is your class decleration. The basic structure is: visibility filetype filename. There is more to this, but we will get up to that at a later 
-stage. Then in the body (between the two curly brackets), you will have all of your functions and variables. All the things that make the file work will go 
-in there.
+The next line is your class decleration. The basic structure is: visibility filetype filename. There is more to this, but we will get up to that at a later stage. Then in the body (between the two curly brackets), you will have all of your functions and variables. All the things that make the file work will go in there.
 
 ## Method decleration
 
@@ -166,7 +164,7 @@ All loops can also be labelled for reference with a `break` or `continue` statem
 public int[] name = new int[] {itemOne, itemTwo, itemThree}; // for storing multiple variables in one.
 ```
 
-The syntax for arrays is notably different in Java. The structure is: `visibility data_type[] name = **new** data_type[] {list_of_data};`
+The syntax for arrays is notably different in Java. The structure is: `visibility data_type[] name = new data_type[] {list_of_data};`
 The `new` keyword just simply statest that it is making a new object of the specified type. It might also be worth noting that if you do not
 want to define the list of paramaters in the array, you can simply add a number between the [] in the data_type[] after the `new` keyword.
 That simply specifies how long the array will be.

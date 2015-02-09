@@ -9,7 +9,7 @@ There is generally one class for each file in Java, and the class name must have
 
 Classes are defined using the **`class`** keyword, before the name of the class. An example of our `Computer` class is below.
 
-Computer.java
+
 ``` java
 package org.decode.objects;
 

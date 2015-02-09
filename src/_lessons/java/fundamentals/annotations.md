@@ -15,32 +15,34 @@ special information.
 ### Predefined annotations
 
 <table>
+  <thead>
     <tr>
-        <td>**Annotation**</td>
-        <td>**Where to place it**</td>
-        <td>**What it does**</td>
+      <th>Annotation</td>
+      <th>Where to place it</td>
+      <th>What it does</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>@Override</code></td>
+      <td>Before method or field declerations</td>
+      <td>This will mark that a method will override the same method in the superclass. Even though that methods written the same in the subclass from the superclass are automatically overriden, but it is a good way of marking that the method is an overriding method. So you or anyone else reading your code can figure it out fast. It is recommended to have this before overridden methods are defined, because it makes it easier for you, and anyone else.</td>
     </tr>
     <tr>
-        <td>**@Override**</td>
-        <td>Before method or field declerations</td>
-        <td>This will mark that a method will override the same method in the superclass. Even though that methods written the same in the subclass from the superclass
-        are automatically overriden, but it is a good way of marking that the method is an overriding method. So you or anyone else reading your code can figure it out
-        fast. It is recommended to have this before overridden methods are defined, because it makes it easier for you, and anyone else.</td>
+      <td><code>@Deprecated</code></td>
+      <td>Before anything</td>
+      <td>This annotation will mark your method/class/field as deprecated. This means that it is a method/field/class that other people would generally want to avoid
+      using because either the item marked deprecated is volatile and dangerous, or another superior item has been made with the same purpose, therefore the old one 
+      might be removed in a future update. IDE's will warn you if you are using a deprecated item, and advise you to not.</td>
     </tr>
     <tr>
-        <td>**@Deprecated**</td>
-        <td>Before anything</td>
-        <td>This annotation will mark your method/class/field as deprecated. This means that it is a method/field/class that other people would generally want to avoid
-        using because either the item marked deprecated is volatile and dangerous, or another superior item has been made with the same purpose, therefore the old one 
-        might be removed in a future update. IDE's will warn you if you are using a deprecated item, and advise you to not.</td>
+      <td><code>@SuppressWarnings("warning")</code></td>
+      <td>Before anything</td>
+      <td>This annotation does exactly as it sounds. It hides any warnings that either the compiler or the IDE brings forth to you. It can be placed before anything
+      that can give you a warning to hide it. The parameters of this annotation are the type of warning you would like to suppress. There may be more than one, but 
+      it must be in a list ({}) with each warning seperated by a comma (,).</td>
     </tr>
-    <tr>
-        <td>**@SuppressWarnings("warning")**</td>
-        <td>Before anything</td>
-        <td>This annotation does exactly as it sounds. It hides any warnings that either the compiler or the IDE brings forth to you. It can be placed before anything
-        that can give you a warning to hide it. The parameters of this annotation are the type of warning you would like to suppress. There may be more than one, but 
-        it must be in a list ({}) with each warning seperated by a comma (,).</td>
-    </tr>
+  </tbody>
 </table>
 
 ### Creating annotations
@@ -60,44 +62,16 @@ second one declares where the annotation can be placed. The retention policy can
 it only exists as part of the compiler, and not the JVM, or RUNTIME which means that it can exist on the JVM, but the element type can be anything. Below
 is a table showing the options.
 
-<table>
-    <tr>
-        <td>**Option**</td>
-        <td>**Location**</td>
-    </tr>
-    <tr>
-        <td>_ANNOTATION_TYPE_</td>
-        <td>Applied before annotation declerations</td>
-    </tr>
-    <tr>
-        <td>_CONSTRUCTOR_</td>
-        <td>Can be applied before a constructor</td>
-    </tr>
-    <tr>
-        <td>_FIELD_</td>
-        <td>Applies to a field or property</td>
-    </tr>
-    <tr>
-        <td>_LOCAL_VARIABLE_</td>
-        <td>Can be applied before the decleration of a local variable</td>
-    </tr>
-    <tr>
-        <td>_METHOD_</td>
-        <td>Applied before defining a method</td>
-    </tr>
-    <tr>
-        <td>_PACKAGE_</td>
-        <td>Placed before a package decleration</td>
-    </tr>
-    <tr>
-        <td>_PARAMETER_</td>
-        <td>Can be applied to the parameters of a method</td>
-    </tr>
-    <tr>
-        <td>_TYPE_</td>
-        <td>Can be applied before a class, interface, or enum type</td>
-    </tr>
-</table>
+Option          | Location
+----------------|---------
+ANNOTATION_TYPE | Applied before annotation declarations
+CONSTRUCTOR     | Can be applied before a constructor
+FIELD           | Applies to a field or property
+LOCAL_VARIABLE  | Can be applied before the declaration of a local variable
+METHOD          | Applied before defining a method
+PACKAGE         | Placed before a package declaration
+PARAMETER       | Can be applied to the parameters of a method
+TYPE            | Can be applied before a class, interface or enum type
 
 If you want the annotation to go anywhere, simply exclude it, and if you want multiple places, simply put as many @Target annotations with different assignments
 as you want.

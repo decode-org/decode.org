@@ -8,7 +8,6 @@ In this lesson, we will show you how to create and manipulate instances.
 
 In the code below, we are creating a new instance of a blank object. Our instance wont do everything, but it will show you the conecpt of creating new instances.
 
-Computer1.java
 ``` java
 package org.decode.objects;
 

@@ -17,11 +17,9 @@ to see you again soon!
 The source code and the compiled runnable JAR file for the game is up for grabs on this website. Download it below, or copy and paste the source code if you want to continue
 creating the game by adding more stuff to it.
 
-Runnable JAR File: [Pong.jar](/files/Pong.jar)
+Runnable JAR File: [Pong.jar](/assets/files/Pong.jar)
 
-Below is the full source code of the application.
-
-**WARN:** Unable to preview java/lwjgl/full
+We will be uploading the source code to GitHub soon.
 
 ## Video
 

@@ -15,7 +15,7 @@ has, but additional methods and fields can be added to the child object that are
 overridden, meaning that the method in the child object replaces the method in the parent object, but only for instances of the child object. Below is a diagram, 
 and then an example showing this.
 
-![Inheritance flowchart](img/inheritance.png)
+![Inheritance flowchart](/assets/img/learn/inheritance.png)
 
 The child class all extend off the parent or base class. Remember from our Objects and Classes tutorial what a class was, a holder for the contents of an object? 
 Well good, because inheritance revolves around classes as much as objects, as that is where you extend from another class. Before we get any further, let's go over 

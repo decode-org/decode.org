@@ -23,7 +23,7 @@ You also need the LWJGL library itself. You can find that [here](http://lwjgl.or
 ## Programming workspace
 
 You need an application to program Java in. We highly recommend that you use Eclipse. We recommend this because it is easy to set up an LWJGL project with, and it is just great.
-There is a tutorial on setting up eclipse [here](http://decode.org.nz/lessons/set/java/setup) at the Download required software section if you do not already have 
+There is a tutorial on setting up eclipse [here](/learn/java/fundamentals/setup/) at the Download required software section if you do not already have 
 Eclipse. A link to download it is also in that section.
 
 ## Let's Begin!
