@@ -1080,7 +1080,8 @@ input:-webkit-autofill {
 }
 input[type="submit"],
 button,
-.button {
+.button,
+a.button {
   display: inline-block;
   margin-top: 5px;
   margin-bottom: 5px;
@@ -1092,10 +1093,21 @@ button,
   font-weight: bold;
   background-color: #ffb384;
   border: none;
+  -webkit-transition-property: background-color text-shadow -webkit-transform;
+          transition-property: background-color text-shadow transform;
+  -webkit-transition-duration: 0.2s;
+          transition-duration: 0.2s;
+}
+input[type="submit"]:hover,
+button:hover,
+.button:hover,
+a.button:hover {
+  text-shadow: 0 0.1em 0 rgba(0, 0, 0, 0.2);
 }
 input[type="submit"]:active,
 button:active,
-.button:active {
+.button:active,
+a.button:active {
   outline: none;
   background-color: #ff9351;
   -webkit-transform: scale(0.95);
@@ -1104,19 +1116,35 @@ button:active,
 }
 input[type="submit"]:disabled,
 button:disabled,
-.button:disabled {
+.button:disabled,
+a.button:disabled,
+input[type="submit"].disabled,
+button.disabled,
+.button.disabled,
+a.button.disabled {
   background-color: #767676;
 }
 input[type="submit"].light,
 button.light,
-.button.light {
+.button.light,
+a.button.light,
+.home .sessions-row a.button {
   background-color: #ffffff;
   color: #ffb384;
 }
+input[type="submit"].light:hover,
+button.light:hover,
+.button.light:hover,
+a.button.light:hover,
+.home .sessions-row a.button:hover {
+  text-shadow: 0 0.1em 0 rgba(0, 0, 0, 0.1);
+}
 input[type="submit"].light:active,
 button.light:active,
-.button.light:active {
-  background-color: #5d5d5d;
+.button.light:active,
+a.button.light:active,
+.home .sessions-row a.button:active {
+  background-color: #f2f2f2;
 }
 .home .site-content {
   padding-top: 0;

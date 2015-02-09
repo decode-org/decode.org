@@ -322,7 +322,7 @@ input:-webkit-autofill {
   }
 }
 
-input[type="submit"], button, .button {
+input[type="submit"], button, .button, a.button {
   display: inline-block;
 
   margin-top: 5px;
@@ -340,6 +340,13 @@ input[type="submit"], button, .button {
 
   border: none;
 
+  transition-property: background-color text-shadow transform;
+  transition-duration: 0.2s;
+
+  &:hover {
+    text-shadow: 0 0.1em 0 rgba(0, 0, 0, .2);
+  }
+
   &:active {
     outline: none;
 
@@ -347,7 +354,7 @@ input[type="submit"], button, .button {
     transform: scale(0.95);
   }
 
-  &:disabled {
+  &:disabled, &.disabled {
     background-color: @brand-grey;
   }
 
@@ -355,8 +362,12 @@ input[type="submit"], button, .button {
     background-color: @brand-white;
     color: @brand-primary;
 
+    &:hover {
+      text-shadow: 0 0.1em 0 rgba(0, 0, 0, .1);
+    }
+
     &:active {
-      background-color: darken(@brand-grey, 10%);
+      background-color: lighten(@brand-light-grey, 20%);
     }
   }
 }

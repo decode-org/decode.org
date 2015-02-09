@@ -24,13 +24,21 @@ class: home
     <div class="content-wrapper">
       <h2>Sessions</h2>
       <p>Decode supplies a model for schools and other organisations to run sessions that allow students to explore technology in a way that they enjoy, and a way that allows them to learn a lot. You can find a local session today, or volunteer your time to make sessions better. This could be in the form of running your own sessions, or joining a current one as a mentor.</p>
-      <p><a class="button">Find a Session</a><a class="button">Volunteer</a></p>
+      <p><a href="/locations/" class="button">Find a Session</a><a href="/run/" class="button">Volunteer</a></p>
     </div>
   </div>
   <div class="home-row lessons-row">
     <div class="content-wrapper">
       <h2>Learn Online</h2>
-      <p>Either as a tool for sessions or for anyone who wants to learn more about coding and computers in general, we're populating an archive of valuable lessons. Start now by going to the learn page or choosing a category right here.</p>
+      <p>Either as a tool for sessions or for anyone who wants to learn more about coding and computers in general, we're populating an archive of valuable lessons. Start now by going to the <a href="/learn/">Learn</a> page or choosing a category right here.</p>
+      <p>
+        {% for collection_key in site.data.lessons.index.collections %}
+          {% capture path %}_lesson_collections/{{ collection_key }}.md{% endcapture %}
+          {% assign collection = site.lesson_collections|where:"relative_path",path %}
+          {% assign collection = collection[0] %}
+          <a href="{{ collection.url }}" class="button">{{ collection.title }}</a>
+        {% endfor %}
+      </p>
     </div>
   </div>
   <div class="home-row video-row">
