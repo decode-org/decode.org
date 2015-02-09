@@ -1153,9 +1153,14 @@ a.button.light:active,
   padding-top: 0;
 }
 .home .home-hero {
-  height: 100vh;
+  height: 500px;
   position: relative;
   background-color: #ffb384;
+}
+@media only screen and (min-height: 700px) {
+  .home .home-hero {
+    height: 800px;
+  }
 }
 .home .phone-holder {
   width: 240px;

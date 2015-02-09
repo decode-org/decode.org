@@ -4,10 +4,14 @@
   }
 
   .home-hero {
-    height: 100vh;
+    height: 500px;
     position: relative;
 
     background-color: @brand-primary;
+
+    @media @screen and (min-height: 700px) {
+      height: 800px;
+    }
   }
 
   .phone-holder {
