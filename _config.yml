@@ -51,6 +51,7 @@ defaults:
       path: ''
     values:
       layout: 'default'
+      image: '/assets/img/kids-on-pi.jpg'
   - scope:
       path: ''
       type: 'lesson_collections'

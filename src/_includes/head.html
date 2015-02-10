@@ -25,6 +25,7 @@
   <meta property="og:title" content="{{ title }}" />
   <meta property="og:description" content="{{ description }}" />
   <meta property="og:url" content="{{ site.url }}{{ page.url }}" />
+  <meta property="og:image" content="{% assign imagechar = page.image | slice:0,1 %}{% if imagechar == '/' %}{{ site.url }}{% endif %}{{ page.image }}" />
 
   <!-- CSS -->
   <!-- build:css /assets/stylesheets/main.min.css -->
