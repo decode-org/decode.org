@@ -1,4 +1,4 @@
-(function() {
+try { (function() {
   var lastTime = 0;
 var lastCheckTime = 0;
 var currentIndex = 0;
@@ -265,4 +265,5 @@ var createVideo = window.createVideo = function(elem, url) {
     });
 
 }
-})();
+})(); } catch (e) {
+}

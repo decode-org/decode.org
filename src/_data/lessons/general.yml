@@ -1,0 +1,4 @@
+- name: Intro to Programming
+  path: start
+  author: Christian Silver
+  lessons: ['intro']
