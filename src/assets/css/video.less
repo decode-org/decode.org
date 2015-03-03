@@ -1,77 +1,79 @@
-.controls {
-    height: 32px;
-    line-height: 32px;
-    background-color: @brand-black;
-    font-family: @font-heading;
-    position: relative;
-}
+.old-video {
+  .controls {
+      height: 32px;
+      line-height: 32px;
+      background-color: @brand-black;
+      font-family: @font-heading;
+      position: relative;
+  }
 
-.play-button {
-    color: @brand-secondary;
-    width: 32px;
-    height: 100%;
-    text-align: center;
-    position: absolute;
-    left: 0;
-    cursor: pointer;
-}
+  .play-button {
+      color: @brand-secondary;
+      width: 32px;
+      height: 100%;
+      text-align: center;
+      position: absolute;
+      left: 0;
+      cursor: pointer;
+  }
 
-.play-button.running {
-    color: @brand-primary;
-}
+  .play-button.running {
+      color: @brand-primary;
+  }
 
-.current-playing {
-    height: 32px;
-    font-family: @font-heading;
-    position: relative;
-    line-height: 32px;
-}
+  .current-playing {
+      height: 32px;
+      font-family: @font-heading;
+      position: relative;
+      line-height: 32px;
+  }
 
-.video-playing,.code-playing {
-    position: absolute;
-    height: 100%;
-}
+  .video-playing,.code-playing {
+      position: absolute;
+      height: 100%;
+  }
 
-.code-playing {
-    display: none;
-}
+  .code-playing {
+      display: none;
+  }
 
-.seek {
-    position: absolute;
-    left: 32px;
-    right: 64px;
-    height: 100%;
-    background: @brand-white;
-    cursor: pointer;
-}
+  .seek {
+      position: absolute;
+      left: 32px;
+      right: 64px;
+      height: 100%;
+      background: @brand-white;
+      cursor: pointer;
+  }
 
-.buffered {
-    position: absolute;
-    height: 100%;
-    background-color: @brand-secondary;
-}
+  .buffered {
+      position: absolute;
+      height: 100%;
+      background-color: @brand-secondary;
+  }
 
-.needle {
-    width: 2px;
-    position: absolute;
-    left: 0;
-    background: @brand-primary;
-    height: 100%;
-}
+  .needle {
+      width: 2px;
+      position: absolute;
+      left: 0;
+      background: @brand-primary;
+      height: 100%;
+  }
 
-.video-container {
-    position: relative;
-}
+  .video-container {
+      position: relative;
+  }
 
-#player {
-    position: absolute;
-}
+  #player {
+      position: absolute;
+  }
 
-#editor {
-    height: 100%; width: 100%; position: absolute; display: none;
-}
+  #editor {
+      height: 100%; width: 100%; position: absolute; display: none;
+  }
 
 
-#code-video {
-    margin-bottom: 25px;
+  #code-video {
+      margin-bottom: 25px;
+  }
 }

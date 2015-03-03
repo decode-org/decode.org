@@ -1214,14 +1214,14 @@ a.button.light:active,
 .home .home h2 {
   text-align: center;
 }
-.controls {
+.old-video .controls {
   height: 32px;
   line-height: 32px;
   background-color: #272727;
   font-family: 'proxima-nova', 'Helvetica Neue', Arial, sans-serif;
   position: relative;
 }
-.play-button {
+.old-video .play-button {
   color: #27b6d8;
   width: 32px;
   height: 100%;
@@ -1230,24 +1230,24 @@ a.button.light:active,
   left: 0;
   cursor: pointer;
 }
-.play-button.running {
+.old-video .play-button.running {
   color: #ffb384;
 }
-.current-playing {
+.old-video .current-playing {
   height: 32px;
   font-family: 'proxima-nova', 'Helvetica Neue', Arial, sans-serif;
   position: relative;
   line-height: 32px;
 }
-.video-playing,
-.code-playing {
+.old-video .video-playing,
+.old-video .code-playing {
   position: absolute;
   height: 100%;
 }
-.code-playing {
+.old-video .code-playing {
   display: none;
 }
-.seek {
+.old-video .seek {
   position: absolute;
   left: 32px;
   right: 64px;
@@ -1255,31 +1255,31 @@ a.button.light:active,
   background: #ffffff;
   cursor: pointer;
 }
-.buffered {
+.old-video .buffered {
   position: absolute;
   height: 100%;
   background-color: #27b6d8;
 }
-.needle {
+.old-video .needle {
   width: 2px;
   position: absolute;
   left: 0;
   background: #ffb384;
   height: 100%;
 }
-.video-container {
+.old-video .video-container {
   position: relative;
 }
-#player {
+.old-video #player {
   position: absolute;
 }
-#editor {
+.old-video #editor {
   height: 100%;
   width: 100%;
   position: absolute;
   display: none;
 }
-#code-video {
+.old-video #code-video {
   margin-bottom: 25px;
 }
 /* Variables

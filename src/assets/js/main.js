@@ -18,7 +18,7 @@ var Decode = {
             });
           });
 
-          $('.lesson-video').each(function() {
+          $('.old-lesson-video').each(function() {
             createVideo($(this), $(this).data('video-config'));
           });
 
