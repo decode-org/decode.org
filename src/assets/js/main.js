@@ -22,6 +22,11 @@ var Decode = {
             createVideo($(this), $(this).data('video-config'));
           });
 
+          $('.lesson-video').each(function() {
+            console.log(this);
+            new DecodeVideo(this);
+          });
+
           $('.menu-button').click(function() {
             $('body').toggleClass('menu-active');
           });

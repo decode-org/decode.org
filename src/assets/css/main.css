@@ -1214,6 +1214,25 @@ a.button.light:active,
 .home .home h2 {
   text-align: center;
 }
+.lesson-video {
+  position: relative;
+}
+.lesson-video:before {
+  display: block;
+  content: ' ';
+  height: 0;
+  padding-top: 56.25%;
+}
+.lesson-video .yt-video {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+/* Old Video
+   ========================================================================== */
 .old-video .controls {
   height: 32px;
   line-height: 32px;

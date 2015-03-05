@@ -1,3 +1,27 @@
+.lesson-video {
+  position: relative;
+
+  &:before {
+    display: block;
+    content: ' ';
+    height: 0;
+    padding-top: 56.25%;
+  }
+
+  .yt-video {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+  }
+}
+
+/* Old Video
+   ========================================================================== */
+
 .old-video {
   .controls {
       height: 32px;
