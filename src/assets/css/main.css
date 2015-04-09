@@ -478,6 +478,7 @@ a:focus {
   font-style: normal;
 }
 .icon,
+.lesson-video .video-controls .playback-button,
 .site-header .menu-button,
 .site-footer .social-links a {
   font-family: "decode-icons";
@@ -504,28 +505,37 @@ a:focus {
 }
 .icon-youtube-play:before,
 .site-footer .social-links a.youtube:before {
-  content: '\e800';
-}
-/* '' */
-.icon-facebook:before,
-.site-footer .social-links a.facebook:before {
   content: '\e801';
 }
 /* '' */
-.icon-github:before,
-.site-footer .social-links a.github:before {
+.icon-facebook:before,
+.site-footer .social-links a.facebook:before {
   content: '\e802';
 }
 /* '' */
+.icon-github:before,
+.site-footer .social-links a.github:before {
+  content: '\e803';
+}
+/* '' */
 .icon-menu:before,
 .site-header .menu-button:before {
+  content: '\e804';
+}
+/* '' */
+.icon-cancel-circle:before {
   content: '\e805';
 }
 /* '' */
-.icon-cancel-circle:before {
+.icon-play:before,
+.lesson-video .video-controls .playback-button:before {
   content: '\e806';
 }
 /* '' */
+.icon-pause:before {
+  content: '\e807';
+}
+/* '' */
 .highlight {
   color: #ffffff;
   /* Comment */
@@ -1214,10 +1224,10 @@ a.button.light:active,
 .home .home h2 {
   text-align: center;
 }
-.lesson-video {
+.lesson-video .playback-container {
   position: relative;
 }
-.lesson-video:before {
+.lesson-video .playback-container:before {
   display: block;
   content: ' ';
   height: 0;
