@@ -1242,6 +1242,50 @@ a.button.light:active,
   width: 100%;
   height: 100%;
 }
+.lesson-video .video-controls {
+  height: 60px;
+  position: relative;
+}
+.lesson-video .video-controls .playback-button {
+  margin: 0;
+  font-size: 30px;
+  line-height: 60px;
+}
+.lesson-video .video-controls .seek-container {
+  position: absolute;
+  left: 45px;
+  right: 0;
+  top: 0;
+  height: 100%;
+}
+.lesson-video .video-controls .seek-bar {
+  position: absolute;
+  top: 50%;
+  margin-top: -2px;
+  height: 4px;
+  width: 100%;
+  background-color: #767676;
+}
+.lesson-video .video-controls .seek-loaded {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 0%;
+  background-color: #bfbfbf;
+}
+.lesson-video .video-controls .seek-needle {
+  position: absolute;
+  margin-left: -8px;
+  margin-top: -8px;
+  left: 0;
+  top: 50%;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  border: 4px solid #ffb384;
+}
 /* Old Video
    ========================================================================== */
 .old-video .controls {
