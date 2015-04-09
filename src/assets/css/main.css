@@ -532,7 +532,8 @@ a:focus {
   content: '\e806';
 }
 /* '' */
-.icon-pause:before {
+.icon-pause:before,
+.lesson-video.playing .playback-button:before {
   content: '\e807';
 }
 /* '' */
