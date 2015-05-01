@@ -220,6 +220,12 @@ gulp.task('serve:dev', ['styles', 'jekyll:dev'], function () {
     // tunnel: '',
     server: {
       baseDir: 'serve'
+    },
+    open: false,
+    ghostMode: {
+      clicks: false,
+      forms: false,
+      scroll: true
     }
   });
 });
@@ -240,6 +246,12 @@ gulp.task('serve:prod', function () {
     // tunnel: true,
     server: {
       baseDir: 'site'
+    },
+    open: false,
+    ghostMode: {
+      clicks: false,
+      forms: false,
+      scroll: true
     }
   });
 });
