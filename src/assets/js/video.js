@@ -185,6 +185,7 @@ DecodeVideo.loadYTAPI = function(callback) {
       var tag = document.createElement('script');
 
       window.onYouTubeIframeAPIReady = function() {
+        DecodeVideo.YTAPILoadState = 2;
         DecodeVideo.YTCallbacks.forEach(function(fn) {
           fn();
         });

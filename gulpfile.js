@@ -85,7 +85,8 @@ gulp.task('images', function () {
 gulp.task('assets', function() {
   return gulp.src(['src/assets/**', '!src/assets/css/**'])
     .pipe($.changed('serve/assets'))
-    .pipe(gulp.dest('serve/assets'));
+    .pipe(gulp.dest('serve/assets'))
+    .pipe(reload({stream: true}));
 });
 
 
@@ -233,8 +234,9 @@ gulp.task('serve:dev', ['styles', 'jekyll:dev'], function () {
 // These tasks will look for files that change while serving and will auto-regenerate or
 // reload the website accordingly. Update or add other files you need to be watched.
 gulp.task('watch', function () {
-  gulp.watch(['src/**/*.md', 'src/**/*.html', 'src/**/*.xml', 'src/**/*.txt'], ['jekyll-rebuild']);
-  gulp.watch(['serve/**'], reload);
+  gulp.watch(['src/**/*.md', 'src/**/*.html', 'src/**/*.xml', 'src/**/*.txt'], function () {
+    sequence('jekyll-rebuild', reload)
+  });
   gulp.watch(['src/assets/css/**/*.less'], ['styles']);
   gulp.watch(['src/assets/**', '!src/assets/css/**'], ['assets']);
 });
