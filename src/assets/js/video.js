@@ -1,16 +1,28 @@
-var DecodeVideo = function(element) {
+/**
+ * General purpose video for video lessons
+ *
+ * @constructor
+ * @param {Object} element - The element to video-ify
+ */
+var DecodeVideo = function (element) {
+  'use strict';
   element = this.element = $(element);
 
   this.dataUrl = element.data('url');
   this.videoId = element.data('videoId');
+  this.recodeUrl = element.data('videoRecode');
   this.transitions = element.data('transitions');
   this.isPlaying = false;
   this.duration = 0;
+  this.loadingElements = 0;
+  this.readyState = 0;
   this.container = $('<div class="playback-container"></div>');
   this.controls = $('<div class="video-controls"><div class="playback-button"></div><div class="seek-container" touch-action="none"><div class="seek-bar"><div class="seek-loaded"></div><div class="seek-needle"></div></div></div></div>');
 
+  this.element.addClass('not-ready');
   this.element.append(this.container);
   this.element.append(this.controls);
+  this.time = 0;
 
   this.elements = {
     playback: this.controls.find('.playback-button'),
@@ -19,15 +31,39 @@ var DecodeVideo = function(element) {
     needle: this.controls.find('.seek-needle')
   };
 
+  if (this.recodeUrl) {
+    this.hasRecode = true;
+    this.loadElement();
+
+    this.recodeContainer = $('<div class="video-recode-container"></div>');
+    this.container.append(this.recodeContainer);
+
+    DecodeVideo.loadCodeMirror(function () {
+      $.ajax({
+        url: this.recodeUrl,
+        success: function (data) {
+          console.log(data);
+          this.recode = new Recode({ element: this.recodeContainer[0], adapter: 'codemirror', recorddata: data });
+          this.recode.render = function () {
+            console.log('recode render');
+            Recode.prototype.render.call(this);
+          };
+          this.loadedElement();
+        }.bind(this)
+      });
+    }.bind(this));
+  } else {
+    this.hasRecode = false;
+  }
 
   // Async fun!
   if (this.videoId) {
     this.hasYT = true;
     this.YTVideo = $('<div class="yt-video"></div>');
-    console.log(this.YTVideo);
+    this.loadElement();
     this.container.append(this.YTVideo);
 
-    DecodeVideo.loadYTAPI(function() {
+    DecodeVideo.loadYTAPI(function () {
       this.YTPlayer = new YT.Player(this.YTVideo[0], {
         videoId: this.videoId,
         width: '',
@@ -43,22 +79,31 @@ var DecodeVideo = function(element) {
         },
         events: {
           onStateChange: this.onYTStateChange.bind(this),
-          onReady: function(event) {
+          onReady: function (event) {
             this.duration = this.YTPlayer.getDuration();
-            this.ready();
+            this.loadedElement();
           }.bind(this)
         }
       });
     }.bind(this));
   } else {
     this.hasYT = false;
-    this.ready();
   }
-}
 
-// Private
-DecodeVideo.prototype.ready = function() {
-  this.elements.playback.click(function() {
+  this.readyState = 1;
+  this.checkLoaded();
+};
+
+/**
+ * Indicate that the video is ready and playable
+ *
+ * @private
+ */
+DecodeVideo.prototype.ready = function () {
+  this.element.removeClass('not-ready').addClass('ready');
+  this.readyState = 2;
+
+  this.elements.playback.click(function () {
     if (this.isPlaying) {
       this.pause();
     } else {
@@ -66,17 +111,15 @@ DecodeVideo.prototype.ready = function() {
     }
   }.bind(this));
 
-  console.log(this.elements.seek);
-
-  var pointerMove = function(e) {
+  var pointerMove = function (e) {
     var parentOffset = this.elements.seek.offset();
-    var relX = e.pageX - parentOffset.left,
-        ratio = Math.max(0, Math.min(1, relX / this.elements.seek.width()));
+    var relX = e.pageX - parentOffset.left;
+    var ratio = Math.max(0, Math.min(1, relX / this.elements.seek.width()));
 
     this.setTime(ratio * this.duration, true);
   }.bind(this);
 
-  var pointerUp = function(e) {
+  var pointerUp = function (e) {
     var parentOffset = this.elements.seek.offset();
     var relX = e.pageX - parentOffset.left,
         ratio = Math.max(0, Math.min(1, relX / this.elements.seek.width()));
@@ -87,7 +130,7 @@ DecodeVideo.prototype.ready = function() {
     this.elements.seek.off('pointermove', pointerMove);
   }.bind(this);
 
-  this.elements.seek.on('pointerdown', function(e) {
+  this.elements.seek.on('pointerdown', function (e) {
     console.log('?');
     this.pause();
 
@@ -99,8 +142,11 @@ DecodeVideo.prototype.ready = function() {
 
     this.elements.seek.on('pointerup', pointerUp).on('pointermove', pointerMove);
   }.bind(this));
-}
+};
 
+/**
+ * Play the video. If the video is playing, nothing happens
+ */
 DecodeVideo.prototype.play = function() {
   if (this.hasYT) {
     this.YTPlayer.playVideo();
@@ -109,6 +155,9 @@ DecodeVideo.prototype.play = function() {
   }
 };
 
+/**
+ * Pause the video. If the video is paused, nothing happens
+ */
 DecodeVideo.prototype.pause = function() {
   if (this.hasYT) {
     this.YTPlayer.pauseVideo();
@@ -117,6 +166,13 @@ DecodeVideo.prototype.pause = function() {
   }
 };
 
+/**
+ * Sets the current time of the video in seconds
+ *
+ * @param {number} time - The time in seconds to skip to
+ * @param {boolean} [notunderlying=true] - Whether to update the underlying mechanism or just update visually
+ * @param {boolean} [lookahead=true] - (YOUTUBE ONLY) Whether the video should seek ahead
+ */
 DecodeVideo.prototype.setTime = function(time, notunderlying, lookahead) {
   if (this.hasYT) {
     if (!notunderlying) {
@@ -127,10 +183,24 @@ DecodeVideo.prototype.setTime = function(time, notunderlying, lookahead) {
   }
 };
 
+/**
+ * Internal function for visually setting the time
+ *
+ * @private
+ */
 DecodeVideo.prototype._setTime = function(time) {
+  this.time = time;
   this.elements.needle.css({left: time / this.duration * 100 + '%'});
+  if (this.hasRecode) {
+    this.recode.setTime(this.time * 1000);
+  }
 };
 
+/**
+ * Internal function for updating the player visually
+ *
+ * @private
+ */
 DecodeVideo.prototype.update = function() {
   if (this.hasYT) {
     console.log('update!');
@@ -141,14 +211,19 @@ DecodeVideo.prototype.update = function() {
   }
 };
 
-// Private
+/**
+ * Sets the play state to either 'paused' or 'playing'
+ *
+ * @private
+ * @param {string} state - The state to set it to
+ */
 DecodeVideo.prototype.setPlayState = function(state) {
   switch (state) {
     case 'playing':
       if (!this.isPlaying) {
         this.element.addClass('playing');
         this.isPlaying = true;
-        this.update.timer = setInterval(this.update.bind(this), 100);
+        this.update.timer = setInterval(this.update.bind(this), 30);
       }
       break;
     case 'paused':
@@ -161,6 +236,43 @@ DecodeVideo.prototype.setPlayState = function(state) {
   }
 };
 
+/**
+ * Indicate that something is loading
+ *
+ * @private
+ */
+DecodeVideo.prototype.loadElement = function () {
+  this.loadingElements += 1;
+};
+
+/**
+ * Indicate that something has finished loading
+ *
+ * @private
+ */
+DecodeVideo.prototype.loadedElement = function () {
+  this.loadingElements -= 1;
+  this.checkLoaded();
+};
+
+/**
+ * Check if everything has loaded
+ *
+ * @private
+ */
+DecodeVideo.prototype.checkLoaded = function () {
+  console.log(this.readyState, this.loadingElements);
+  if ((this.readyState == 1) && (this.loadingElements == 0)) {
+    this.ready();
+  }
+};
+
+/**
+ * Event passed for when the YouTube video changes state
+ *
+ * @private
+ * @param {Object} event
+ */
 DecodeVideo.prototype.onYTStateChange = function(event) {
   switch (event.data) {
     case 1:
@@ -171,6 +283,8 @@ DecodeVideo.prototype.onYTStateChange = function(event) {
       break;
   }
 };
+
+// Static methods and properties
 
 // 0 = Not loading
 // 1 = Loading
@@ -207,57 +321,11 @@ DecodeVideo.loadYTAPI = function(callback) {
   }
 };
 
+DecodeVideo.codeMirrorLoadState = 0;
+DecodeVideo.codeMirrorCallbacks = [];
 
-/*    var pointerdown = function(e) {
-        scrubbing = true;
-
-        if (!audio.paused) {
-          audio.pause();
-        }
-
-        var parentOffset = elements.scrubContainer.offset();
-        //or $(this).offset(); if you really just want the current element's offset
-        var relX = e.pageX - parentOffset.left,
-            ratio = Math.max(0, Math.min(1, relX / elements.scrubContainer.width()));
-
-        setTime(audio.duration * ratio);
-
-
-        container.addClass('scrubbing');
-
-        $(document).on('pointermove', pointermove).on('pointerup', pointerup);
-
-        e.preventDefault();
-      };
-
-      var pointerup = function(e) {
-        if (scrubbing) {
-          scrubbing = false;
-          var parentOffset = elements.scrubContainer.offset();
-          //or $(this).offset(); if you really just want the current element's offset
-          var relX = e.pageX - parentOffset.left,
-              ratio = Math.max(0, Math.min(1, relX / elements.scrubContainer.width()));
-
-          if (audio.duration) {
-            audio.currentTime = audio.duration * ratio;
-            elements.needle.css({left: ratio * 100 + '%'});
-          }
-
-          $(document).off('pointermove', pointermove).off('pointerup', pointerup);
-          container.removeClass('scrubbing');
-
-          setTime(audio.duration * ratio);
-        }
-      };
-
-      var pointermove = function(e) {
-        if (scrubbing) {
-          var parentOffset = elements.scrubContainer.offset();
-          //or $(this).offset(); if you really just want the current element's offset
-          var relX = e.pageX - parentOffset.left,
-              ratio = Math.max(0, Math.min(1, relX / elements.scrubContainer.width()));
-
-          setTime(audio.duration * ratio);
-        }
-      };*/
+DecodeVideo.loadCodeMirror = function (callback) {
+  // Until we actually need to load Code Mirror
+  callback();
+};
 

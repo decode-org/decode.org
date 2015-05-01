@@ -10,6 +10,7 @@ var del = require('del');
 // Parallelize the uploads when uploading to Amazon S3
 // 'fs' is used to read files from the system (used for AWS uploading)
 var fs = require('fs');
+var path = require('path');
 var parallelize = require("concurrent-transform");
 // BrowserSync isn't a gulp package, and needs to be loaded manually
 var browserSync = require('browser-sync');
@@ -23,6 +24,7 @@ var bs;
 var spawn = require('child_process').spawn;
 // Run Sequence
 var sequence = require('run-sequence');
+
 
 var onError = function (err) {
     console.log(err);
@@ -54,7 +56,9 @@ gulp.task('styles', function () {
     .pipe($.plumber({
       errorHandler: onError
     }))
-    .pipe($.less())
+    .pipe($.less({
+      paths: ['./src/bower']
+    }))
     // AutoPrefix your CSS so it works between browsers
     .pipe($.autoprefixer('last 1 version', { cascade: true }))
     // Directory your CSS file goes to

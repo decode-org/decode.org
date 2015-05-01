@@ -6,7 +6,7 @@ layout: default
 {% endif %}
 
 {% if page.lesson_video %}
-  <div class="lesson-video"{% if page.lesson_video.url %} data-video-config="/assets/files/video-config/{{ page.lesson_video.url }}.json"{% endif %}{% if page.lesson_video.video_id %} data-video-id="{{ page.lesson_video.video_id }}"{% endif %}{% if page.lesson_video.transitions %} data-video-transitions="{{ page.lesson_video.transitions | jsonify | xml_escape }}"{% endif %}></div>
+  <div class="lesson-video"{% if page.lesson_video.recode %} data-video-recode="/assets/files/video-config/{{ page.lesson_video.recode }}.json"{% endif %}{% if page.lesson_video.video_id %} data-video-id="{{ page.lesson_video.video_id }}"{% endif %}{% if page.lesson_video.transitions %} data-video-transitions="{{ page.lesson_video.transitions | jsonify | xml_escape }}"{% endif %}></div>
 {% endif %}
 
 {% assign set_key = page.relative_path|replace:'_lessons/','' %}

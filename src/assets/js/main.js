@@ -247,14 +247,14 @@ var Decode = {
 };
 
 (function(){
-    Decode.ready = function() {
-        Decode.pages.common();
-        var classes = $('body').attr('class').replace(/-/g, '_').split(/\s+/).forEach(function(item) {
-            if (Decode.pages[item]) {
-                Decode.pages[item]();
-            }
-        });
-    };
+  Decode.ready = function() {
+    Decode.pages.common();
+    var classes = $('body').attr('class').replace(/-/g, '_').split(/\s+/).forEach(function(item) {
+      if (Decode.pages[item]) {
+        Decode.pages[item]();
+      }
+    });
+  };
 
-    $(document).ready(Decode.ready);
+  $(document).ready(Decode.ready);
 })();
