@@ -38,6 +38,7 @@ excerpt_separator: '<!--more-->'
 
 # Exclude directories
 exclude: [assets, bower]
+keep_files: [assets]
 
 # Collection settings
 collections:

@@ -5,6 +5,7 @@
   "description": "Yeoman workflow for decode org",
   "dependencies": {},
   "devDependencies": {
+    "async": "^0.9.0",
     "browser-sync": "^1.5.7",
     "browserify": "^10.0.0",
     "concurrent-transform": "^1.0.0",
