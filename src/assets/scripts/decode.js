@@ -1,4 +1,5 @@
 var $ = require('jquery');
+require('./PEP');
 
 var Decode = {
     pages: {
