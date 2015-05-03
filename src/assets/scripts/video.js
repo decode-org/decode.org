@@ -2,6 +2,7 @@ var $ = require('jquery');
 var Decode = require('./decode');
 var CodeMirror = require('codemirror');
 require('codemirror/mode/javascript/javascript.js');
+require('codemirror/mode/javascript/javascript.js');
 var Recode = require('recode');
 
 /**
@@ -54,6 +55,7 @@ var DecodeVideo = function (element) {
             console.log('recode render');
             Recode.prototype.render.call(this);
           };
+          this.recode.adapter.codemirror.setOption('readOnly', true);
           this.loadedElement();
         }.bind(this)
       });
