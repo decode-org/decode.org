@@ -1,3 +1,5 @@
+var $ = require('jquery');
+
 try { (function() {
   var lastTime = 0;
 var lastCheckTime = 0;

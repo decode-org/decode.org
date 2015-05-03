@@ -36,6 +36,9 @@ permalink: pretty
 paginate_path: 'page:num'
 excerpt_separator: '<!--more-->'
 
+# Exclude directories
+exclude: [assets, bower]
+
 # Collection settings
 collections:
   lessons:

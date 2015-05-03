@@ -1,3 +1,9 @@
+var $ = require('jquery');
+var Decode = require('./decode');
+var CodeMirror = require('codemirror');
+require('codemirror/mode/javascript/javascript.js');
+var Recode = require('recode');
+
 /**
  * General purpose video for video lessons
  *
@@ -328,4 +334,6 @@ DecodeVideo.loadCodeMirror = function (callback) {
   // Until we actually need to load Code Mirror
   callback();
 };
+
+exports = module.exports = DecodeVideo;
 

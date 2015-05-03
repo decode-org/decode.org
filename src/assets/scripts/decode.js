@@ -1,3 +1,5 @@
+var $ = require('jquery');
+
 var Decode = {
     pages: {
         common: function() {
@@ -246,6 +248,9 @@ var Decode = {
     ]
 };
 
+var DecodeVideo = Decode.DecodeVideo = require('./video');
+
+
 (function(){
   Decode.ready = function() {
     Decode.pages.common();
@@ -258,3 +263,5 @@ var Decode = {
 
   $(document).ready(Decode.ready);
 })();
+
+window.Decode = module.exports = Decode;
