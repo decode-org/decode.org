@@ -2,7 +2,7 @@ var $ = require('jquery');
 var Decode = require('./decode');
 var CodeMirror = require('codemirror');
 require('codemirror/mode/javascript/javascript.js');
-require('codemirror/mode/javascript/javascript.js');
+
 var Recode = require('recode');
 
 /**
@@ -15,21 +15,32 @@ var DecodeVideo = function (element) {
   'use strict';
   element = this.element = $(element);
 
-  this.dataUrl = element.data('url');
+  // Video Sources
   this.videoId = element.data('videoId');
   this.recodeUrl = element.data('videoRecode');
-  this.transitions = element.data('transitions');
+
+  // Transitions
+  this.transitions = element.data('videoTransitions');
+  console.log(this.transitions);
+  this.transitionElements = { };
+  this.activePlayback = '';
+
+  // Timing Information
   this.isPlaying = false;
   this.duration = 0;
+  this.time = 0;
+
+  // Loading Information
   this.loadingElements = 0;
   this.readyState = 0;
+
+  // HTML Elements
   this.container = $('<div class="playback-container"></div>');
   this.controls = $('<div class="video-controls"><div class="playback-button"></div><div class="seek-container" touch-action="none"><div class="seek-bar"><div class="seek-loaded"></div><div class="seek-needle"></div></div></div></div>');
 
   this.element.addClass('not-ready');
   this.element.append(this.container);
   this.element.append(this.controls);
-  this.time = 0;
 
   this.elements = {
     playback: this.controls.find('.playback-button'),
@@ -42,17 +53,16 @@ var DecodeVideo = function (element) {
     this.hasRecode = true;
     this.loadElement();
 
-    this.recodeContainer = $('<div class="video-recode-container"></div>');
+    this.recodeContainer = $('<div class="video-playback video-recode-container"></div>');
+    this.transitionElements.recode = this.recodeContainer;
     this.container.append(this.recodeContainer);
 
     DecodeVideo.loadCodeMirror(function () {
       $.ajax({
         url: this.recodeUrl,
         success: function (data) {
-          console.log(data);
           this.recode = new Recode({ element: this.recodeContainer[0], adapter: 'codemirror', recorddata: data });
           this.recode.render = function () {
-            console.log('recode render');
             Recode.prototype.render.call(this);
           };
           this.recode.adapter.codemirror.setOption('readOnly', true);
@@ -67,12 +77,14 @@ var DecodeVideo = function (element) {
   // Async fun!
   if (this.videoId) {
     this.hasYT = true;
-    this.YTVideo = $('<div class="yt-video"></div>');
+    this.activePlayback = 'youtube';
+    this.YTVideo = $('<div class="video-playback video-playback-active yt-video"><span></span></div>');
+    this.transitionElements.youtube = this.YTVideo;
     this.loadElement();
     this.container.append(this.YTVideo);
 
     DecodeVideo.loadYTAPI(function () {
-      this.YTPlayer = new YT.Player(this.YTVideo[0], {
+      this.YTPlayer = new YT.Player(this.YTVideo.find('span')[0], {
         videoId: this.videoId,
         width: '',
         height: '',
@@ -202,6 +214,25 @@ DecodeVideo.prototype._setTime = function(time) {
   if (this.hasRecode) {
     this.recode.setTime(this.time * 1000);
   }
+
+  // If we have transitions, figure out if we need to transition
+  if (this.transitions) {
+    var truePlayback = this.activePlayback;
+    this.transitions.some(function (transition) {
+      if (this.time >= transition.at) {
+        truePlayback = transition.to;
+      } else {
+        return true;
+      }
+    }.bind(this));
+    console.log(truePlayback);
+
+    if (truePlayback !== this.activePlayback) {
+      this.transitionElements[this.activePlayback].removeClass('video-playback-active');
+      this.transitionElements[truePlayback].addClass('video-playback-active');
+      this.activePlayback = truePlayback;
+    }
+  }
 };
 
 /**
@@ -211,7 +242,6 @@ DecodeVideo.prototype._setTime = function(time) {
  */
 DecodeVideo.prototype.update = function() {
   if (this.hasYT) {
-    console.log('update!');
     this._setTime(this.YTPlayer.getCurrentTime());
     this.elements.loaded.css("width", this.YTPlayer.getVideoLoadedFraction() * 100 + '%');
   } else {

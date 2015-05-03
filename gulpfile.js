@@ -40,7 +40,9 @@ gulp.task('clean:scripts', function (cb) {
 
 gulp.task('scripts', ['clean:scripts'], function () {
   return browserify('./src/assets/scripts/main.js')
+
     .bundle()
+    .on('error', onError)
     .pipe(source('main.js'))
     .pipe(gulp.dest('serve/assets/js'))
     .pipe(reload({stream: true}));
