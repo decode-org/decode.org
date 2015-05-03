@@ -35,6 +35,7 @@
     "gulp-uglify": "^1.0.1",
     "gulp-uncss": "^0.5.0",
     "gulp-useref": "^1.0.2",
+    "javascript-sandbox": "0.0.5",
     "jquery": "^1.11.3",
     "jshint-stylish": "^1.0.0",
     "merge-stream": "^0.1.6",

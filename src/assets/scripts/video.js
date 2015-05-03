@@ -1,5 +1,6 @@
 var $ = require('jquery');
 var Decode = require('./decode');
+var Sandbox = require('javascript-sandbox');
 var CodeMirror = require('codemirror');
 require('codemirror/mode/javascript/javascript.js');
 
@@ -21,7 +22,6 @@ var DecodeVideo = function (element) {
 
   // Transitions
   this.transitions = element.data('videoTransitions');
-  console.log(this.transitions);
   this.transitionElements = { };
   this.activePlayback = '';
 
@@ -56,16 +56,27 @@ var DecodeVideo = function (element) {
     this.recodeContainer = $('<div class="video-playback video-recode-container"></div>');
     this.transitionElements.recode = this.recodeContainer;
     this.container.append(this.recodeContainer);
+    var isSandbox = !!element.data('videoSandbox');
 
     DecodeVideo.loadCodeMirror(function () {
+      var options = { };
+      if (isSandbox) {
+        var sandboxOutput = $('<iframe src="/sandbox-output"></iframe>').insertAfter(element);
+        this.jsSandbox = new Sandbox(this.recodeContainer[0], sandboxOutput[0]);
+        options.codemirror = this.jsSandbox.cm;
+        console.log(options.codemirror);
+      }
+
       $.ajax({
         url: this.recodeUrl,
         success: function (data) {
-          this.recode = new Recode({ element: this.recodeContainer[0], adapter: 'codemirror', recorddata: data });
+          this.recode = new Recode({ element: this.recodeContainer[0], adapter: 'codemirror', recorddata: data, adapterOptions: options });
           this.recode.render = function () {
             Recode.prototype.render.call(this);
           };
-          this.recode.adapter.codemirror.setOption('readOnly', true);
+          if (!isSandbox) {
+            this.recode.adapter.codemirror.setOption('readOnly', true);
+          }
           this.loadedElement();
         }.bind(this)
       });

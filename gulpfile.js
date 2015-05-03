@@ -39,11 +39,17 @@ gulp.task('clean:scripts', function (cb) {
 });
 
 gulp.task('scripts', ['clean:scripts'], function () {
-  return browserify('./src/assets/scripts/main.js')
-
+  var main = browserify('./src/assets/scripts/main.js')
     .bundle()
     .on('error', onError)
-    .pipe(source('main.js'))
+    .pipe(source('main.js'));
+
+  var sandbox = browserify('./src/assets/scripts/sandbox-output.js')
+    .bundle()
+    .on('error', onError)
+    .pipe(source('sandbox-output.js'));
+
+  return merge(main, sandbox)
     .pipe(gulp.dest('serve/assets/js'))
     .pipe(reload({stream: true}));
 });
@@ -55,7 +61,7 @@ gulp.task('clean:styles', function (cb) {
 
 gulp.task('styles', ['clean:styles'], function () {
   // Looks at the style.scss file for what to include and creates a style.css file
-  return gulp.src('src/assets/styles/main.less')
+  return gulp.src(['src/assets/styles/main.less', 'src/assets/styles/sandbox-output.less'])
     .pipe($.plumber({
       errorHandler: onError
     }))
