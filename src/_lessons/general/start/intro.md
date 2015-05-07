@@ -10,5 +10,7 @@ lesson_video:
       to: recode
     - at: 4
       to: youtube
+    - at: 6.5
+      to: recode
   sandbox: bonsai
 ---

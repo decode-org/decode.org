@@ -5,10 +5,6 @@ layout: default
   <div class="old-lesson-video" data-video-config="/assets/files/video-config/{{ page.video_url }}"></div>
 {% endif %}
 
-{% if page.lesson_video %}
-  <div class="lesson-video"{% if page.lesson_video.recode %} data-video-recode="/assets/files/video-config/{{ page.lesson_video.recode }}.json"{% endif %}{% if page.lesson_video.video_id %} data-video-id="{{ page.lesson_video.video_id }}"{% endif %}{% if page.lesson_video.transitions %} data-video-transitions="{{ page.lesson_video.transitions | jsonify | xml_escape }}"{% endif %}{% if page.lesson_video.sandbox %} data-video-sandbox="{{ page.lesson_video.sandbox }}"{% endif %}></div>
-{% endif %}
-
 {% assign set_key = page.relative_path|replace:'_lessons/','' %}
 {% assign set_keys = set_key|split:'/' %}
 {% assign technology = set_keys[0] %}

@@ -61,7 +61,9 @@ var DecodeVideo = function (element) {
     DecodeVideo.loadCodeMirror(function () {
       var options = { };
       if (isSandbox) {
-        var sandboxOutput = $('<iframe src="/sandbox-output"></iframe>').insertAfter(element);
+        this.element.addClass('has-sandbox');
+        var sandboxOutputContainer = $('<div class="video-sandbox-output"><div class="iframe-container"></div></div>').insertAfter(this.container);
+        var sandboxOutput = $('<iframe src="/sandbox-output"></iframe>').appendTo(sandboxOutputContainer.find('.iframe-container'));
         this.jsSandbox = new Sandbox(this.recodeContainer[0], sandboxOutput[0]);
         options.codemirror = this.jsSandbox.cm;
         console.log(options.codemirror);
@@ -201,7 +203,7 @@ DecodeVideo.prototype.pause = function() {
  * Sets the current time of the video in seconds
  *
  * @param {number} time - The time in seconds to skip to
- * @param {boolean} [notunderlying=true] - Whether to update the underlying mechanism or just update visually
+ * @param {boolean} [notunderlying=false] - Whether to update the underlying mechanism or just update visually
  * @param {boolean} [lookahead=true] - (YOUTUBE ONLY) Whether the video should seek ahead
  */
 DecodeVideo.prototype.setTime = function(time, notunderlying, lookahead) {
