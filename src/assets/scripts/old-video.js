@@ -238,7 +238,7 @@ window.onYouTubeIframeAPIReady = function() {
     });
 }
 
-var createVideo = window.createVideo = function(elem, url) {
+var createVideo = module.exports = function(elem, url) {
     //callEvent(0);
 
     elem.append("<div class='old-video'><div class='current-playing'><div class='video-playing'>Video</div><div class='code-playing'></div></div><div class='video-container'><iframe id='player' frameborder='0'></iframe><div id='editor'></div></div><div class='controls'><div class='play-button'>Go</div><div class='seek'><div class='buffered'></div><div class='needle'></div></div></div>");

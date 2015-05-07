@@ -1,4 +1,5 @@
 var $ = require('jquery');
+var createVideo = require('./old-video');
 require('./PEP');
 
 var Decode = {
