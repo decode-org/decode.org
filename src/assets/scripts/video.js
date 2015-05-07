@@ -62,7 +62,7 @@ var DecodeVideo = function (element) {
       var options = { };
       if (isSandbox) {
         this.element.addClass('has-sandbox');
-        var sandboxOutputContainer = $('<div class="video-sandbox-output"><div class="iframe-container"></div></div>').insertAfter(this.container);
+        var sandboxOutputContainer = $('<div class="video-sandbox-output"><div class="iframe-container"></div></div>').insertBefore(this.container);
         var sandboxOutput = $('<iframe src="/sandbox-output"></iframe>').appendTo(sandboxOutputContainer.find('.iframe-container'));
         this.jsSandbox = new Sandbox(this.recodeContainer[0], sandboxOutput[0]);
         options.codemirror = this.jsSandbox.cm;
