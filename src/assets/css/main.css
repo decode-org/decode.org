@@ -502,30 +502,38 @@ a:focus {
   /* Uncomment for 3D effect */
   /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
 }
-.icon-youtube-play:before,
-.site-footer .social-links a.youtube:before {
+.icon-twitter:before,
+.site-footer .social-links a.twitter:before {
   content: '\e800';
 }
 /* '' */
-.icon-facebook:before,
-.site-footer .social-links a.facebook:before {
+.icon-youtube-play:before,
+.site-footer .social-links a.youtube:before {
   content: '\e801';
 }
 /* '' */
 .icon-github:before,
 .site-footer .social-links a.github:before {
-  content: '\e802';
+  content: '\e803';
 }
-/* '' */
+/* '' */
 .icon-menu:before,
 .site-header .menu-button:before {
+  content: '\e804';
+}
+/* '' */
+.icon-cancel-circle:before {
   content: '\e805';
 }
 /* '' */
-.icon-cancel-circle:before {
+.icon-play:before {
   content: '\e806';
 }
 /* '' */
+.icon-pause:before {
+  content: '\e807';
+}
+/* '' */
 .highlight {
   color: #ffffff;
   /* Comment */
@@ -1435,8 +1443,8 @@ a.button.light:active,
   -webkit-transition: color 0.3s;
           transition: color 0.3s;
 }
-.site-footer .social-links a:hover.facebook {
-  color: #3b5998;
+.site-footer .social-links a:hover.twitter {
+  color: #55acee;
 }
 .site-footer .social-links a:hover.youtube {
   color: #e52d27;
