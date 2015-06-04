@@ -222,6 +222,7 @@ DecodeVideo.prototype.setTime = function(time, notunderlying, lookahead) {
  */
 DecodeVideo.prototype._setTime = function(time) {
   this.time = time;
+  console.log(time);
   this.elements.needle.css({left: time / this.duration * 100 + '%'});
   if (this.hasRecode) {
     this.recode.setTime(this.time * 1000);
@@ -237,7 +238,6 @@ DecodeVideo.prototype._setTime = function(time) {
         return true;
       }
     }.bind(this));
-    console.log(truePlayback);
 
     if (truePlayback !== this.activePlayback) {
       this.transitionElements[this.activePlayback].removeClass('video-playback-active');
