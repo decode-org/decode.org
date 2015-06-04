@@ -44,6 +44,13 @@
       width: 100%;
       height: 100%;
     }
+
+    .CodeMirror:not(.CodeMirror-focused) div.CodeMirror-cursors {
+      visibility: visible !important;
+    }
+
+    .CodeMirror-selected { background: #cbcad6; }
+    .CodeMirror-focused .CodeMirror-selected { background: #d7d4f0; }
   }
 
   .yt-video iframe {
