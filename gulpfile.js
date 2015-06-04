@@ -128,7 +128,9 @@ gulp.task('all-assets', ['scripts', 'styles', 'images', 'assets'], function () {
 
 gulp.task('optimise', function () {
   var revAll = new $.revAll({
-    dontRenameFile: ['.html', '.xml', /^\/assets\/files\//, '.txt']
+    dontRenameFile: ['.html', '.xml', '.txt'],
+    dontSearchFile: [/^\/assets\/files\//],
+    dontGlobal: [/^\/assets\/files\/video-config\/flash\//]
   });
 
   return gulp.src('serve/**')
