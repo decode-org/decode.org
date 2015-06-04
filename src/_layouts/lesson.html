@@ -36,3 +36,6 @@ layout: default
 {{ content }}
 {% if previous %}<p class="prev-lesson"><a href="{{ previous.url }}">&laquo; Previous</a></p>{% endif %}
 {% if next %}<p class="next-lesson"><a href="{{ next.url }}">Next &raquo;</a></p>{% endif %}
+
+{% capture disqus_id %}lesson/{{ technology }}/{{ path }}{% endcapture %}
+{% include disqus.html id='lesson' id=disqus_id %}
