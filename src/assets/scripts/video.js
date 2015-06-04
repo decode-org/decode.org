@@ -2,7 +2,6 @@ var $ = require('jquery');
 var Decode = require('./decode');
 var Sandbox = require('javascript-sandbox');
 var CodeMirror = require('codemirror');
-require('codemirror/mode/javascript/javascript.js');
 
 var Recode = require('recode');
 

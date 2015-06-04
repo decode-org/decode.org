@@ -1,6 +1,11 @@
 var $ = require('jquery');
 var createVideo = require('./old-video');
+var Sandbox = require('javascript-sandbox');
+var Recode = require('recode');
 require('./PEP');
+require('codemirror/mode/javascript/javascript.js');
+require('codemirror/addon/lint/lint.js');
+require('codemirror/addon/lint/javascript-lint.js');
 
 var Decode = {
     pages: {
@@ -248,6 +253,11 @@ var Decode = {
             ]
         }
     ]
+};
+
+Decode.pages.sandbox_plain = function () {
+  var sandbox = new Sandbox($('section.code-container')[0], $('#output-frame')[0]);
+  sandbox.bindRecoder(new Recode.Recoder());
 };
 
 var DecodeVideo = Decode.DecodeVideo = require('./video');
