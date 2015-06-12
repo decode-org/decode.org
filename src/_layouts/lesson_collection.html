@@ -6,7 +6,7 @@ layout: default
 {% for set_key in page.sets %}
   {% assign set_keys = set_key | split: '/' %}
   {% assign technology = set_keys[0] %}
-  {% assign path = set_keys[1] %}
+  {% assign path = set_keys[1] | append:'' %}
   {% assign sets = site.data.lessons[technology] %}
   {% assign sets = sets|where:"path",path %}
   {% assign set = sets[0] %}
