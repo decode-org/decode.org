@@ -5,7 +5,8 @@ layout: default
   <div class="old-lesson-video" data-video-config="/assets/files/video-config/{{ page.video_url }}"></div>
 {% endif %}
 
-{% assign set_key = page.relative_path|replace:'_lessons/','' %}
+{% assign set_key = page.relative_path|replace:'_lessons/',''|split:'.' %}
+{% assign set_key = set_key[0] %}
 {% assign set_keys = set_key|split:'/' %}
 {% assign technology = set_keys[0] %}
 {% assign path = set_keys[1] | append:'' %}
@@ -37,5 +38,5 @@ layout: default
 {% if previous %}<p class="prev-lesson"><a href="{{ previous.url }}">&laquo; Previous</a></p>{% endif %}
 {% if next %}<p class="next-lesson"><a href="{{ next.url }}">Next &raquo;</a></p>{% endif %}
 
-{% capture disqus_id %}lesson/{{ technology }}/{{ path }}{% endcapture %}
+{% capture disqus_id %}lesson/{{ set_key }}{% endcapture %}
 {% include disqus.html id='lesson' id=disqus_id %}
