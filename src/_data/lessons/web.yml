@@ -5,4 +5,4 @@
 - name: Let's Make 2048
   author: Christian Silver
   path: '2048'
-  lessons: ['setup']
+  lessons: ['setup', 'grid']

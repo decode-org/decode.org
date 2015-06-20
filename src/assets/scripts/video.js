@@ -2,6 +2,10 @@ var $ = require('jquery');
 var Decode = require('./decode');
 var Sandbox = require('javascript-sandbox');
 var CodeMirror = require('codemirror');
+require('codemirror/mode/xml/xml');
+require('codemirror/mode/javascript/javascript');
+require('codemirror/mode/css/css');
+require('codemirror/mode/htmlmixed/htmlmixed');
 
 var Recode = require('recode');
 
@@ -76,10 +80,12 @@ var DecodeVideo = function (element) {
           };
           if (!isSandbox) {
             this.recode.adapter.codemirror.setOption('readOnly', true);
+            this.recode.adapter.codemirror.setOption('lineNumbers', true);
           }
           this.loadedElement();
         }.bind(this)
       });
+
     }.bind(this));
   } else {
     this.hasRecode = false;
@@ -319,6 +325,7 @@ DecodeVideo.prototype.loadElement = function () {
  * @private
  */
 DecodeVideo.prototype.loadedElement = function () {
+
   this.loadingElements -= 1;
   this.checkLoaded();
 };
