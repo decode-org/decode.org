@@ -65,7 +65,6 @@ var DecodeVideo = function (element) {
         var sandboxOutput = $('<iframe src="/sandbox-output"></iframe>').appendTo(sandboxOutputContainer.find('.iframe-container'));
         this.jsSandbox = new Sandbox(this.recodeContainer[0], sandboxOutput[0]);
         options.codemirror = this.jsSandbox.cm;
-        console.log(options.codemirror);
       }
 
       $.ajax({
@@ -89,6 +88,8 @@ var DecodeVideo = function (element) {
   // Async fun!
   if (this.videoId) {
     this.hasYT = true;
+    this.lastYTTime = 0;
+    this.lastYTCheckTime = 0;
     this.activePlayback = 'youtube';
     this.YTVideo = $('<div class="video-playback video-playback-active yt-video"><span></span></div>');
     this.transitionElements.youtube = this.YTVideo;
@@ -163,7 +164,6 @@ DecodeVideo.prototype.ready = function () {
   }.bind(this);
 
   this.elements.seek.on('pointerdown', function (e) {
-    console.log('?');
     this.pause();
 
     var parentOffset = this.elements.seek.offset();
@@ -222,7 +222,6 @@ DecodeVideo.prototype.setTime = function(time, notunderlying, lookahead) {
  */
 DecodeVideo.prototype._setTime = function(time) {
   this.time = time;
-  console.log(time);
   this.elements.needle.css({left: time / this.duration * 100 + '%'});
   if (this.hasRecode) {
     this.recode.setTime(this.time * 1000);
@@ -252,12 +251,29 @@ DecodeVideo.prototype._setTime = function(time) {
  *
  * @private
  */
-DecodeVideo.prototype.update = function() {
+DecodeVideo.prototype.update = function(date) {
   if (this.hasYT) {
-    this._setTime(this.YTPlayer.getCurrentTime());
+    // This interpolates the time between YouTube time
+    // As they only give us a resolution of 0.25 seconds
+    var yt = this.YTPlayer.getCurrentTime();
+    var t;
+    if ((yt != this.lastYTTime) || (this.justPlayed)) {
+      t = yt;
+      this.lastYTTime = yt;
+      this.lastYTCheckTime = date;
+    } else {
+      t = yt + (date - this.lastYTCheckTime) * 0.001;
+    }
+    this._setTime(t);
     this.elements.loaded.css("width", this.YTPlayer.getVideoLoadedFraction() * 100 + '%');
   } else {
     // ????
+  }
+
+  this.justPlayed = false;
+
+  if (this.isPlaying) {
+    requestAnimationFrame(this.update.bind(this));
   }
 };
 
@@ -273,14 +289,16 @@ DecodeVideo.prototype.setPlayState = function(state) {
       if (!this.isPlaying) {
         this.element.addClass('playing');
         this.isPlaying = true;
-        this.update.timer = setInterval(this.update.bind(this), 30);
+        this.justPlayed = true;
+
+        this.update.timer = requestAnimationFrame(this.update.bind(this));
       }
       break;
     case 'paused':
       if (this.isPlaying) {
         this.element.removeClass('playing');
         this.isPlaying = false;
-        clearInterval(this.update.timer);
+        cancelAnimationFrame(this.update.timer);
       }
       break;
   }
@@ -311,7 +329,6 @@ DecodeVideo.prototype.loadedElement = function () {
  * @private
  */
 DecodeVideo.prototype.checkLoaded = function () {
-  console.log(this.readyState, this.loadingElements);
   if ((this.readyState == 1) && (this.loadingElements == 0)) {
     this.ready();
   }
