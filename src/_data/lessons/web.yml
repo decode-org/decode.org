@@ -5,4 +5,5 @@
 - name: Let's Make 2048
   author: Christian Silver
   path: '2048'
+  label: Under Development
   lessons: ['setup', 'grid']

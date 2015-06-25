@@ -15,7 +15,7 @@ layout: default
 {% assign set = sets[0] %}
 
 <nav class="subpage-nav">
-  <h3>{{ set.name }}</h3>
+  <h3>{{ set.name }} {% if set.label %}<span class="label">{{ set.label }}</span>{% endif %}</h3>
   <ul>
     {% for lesson_key in set.lessons %}
       {% capture lesson_path %}_lessons/{{ technology }}/{{ path }}/{{ lesson_key }}.md{% endcapture %}

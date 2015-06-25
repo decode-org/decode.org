@@ -11,7 +11,8 @@ layout: default
   {% assign sets = sets|where:"path",path %}
   {% assign set = sets[0] %}
   <div class="lesson-card">
-    <h3>{{ set.name }}</h3>
+    <h3>{{ set.name }} {% if set.label %}<span class="label">{{ set.label }}</span>{% endif %}</h3>
+
     <h5>{{ set.author }}</h5>
     <ul>
       {% for lesson_key in set.lessons %}

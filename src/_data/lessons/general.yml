@@ -1,4 +1,5 @@
 - name: Intro to Programming
   path: start
   author: Christian Silver
+  label: Under Development
   lessons: ['intro', 'events']
