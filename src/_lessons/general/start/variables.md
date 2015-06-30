@@ -1,5 +1,9 @@
 ---
 title: "Remembering Things"
+image: /assets/img/thumbnails/general-intro-variables.png
+meta_description: |
+  How can we leverage a computer's memory to keep track of things in an application? 
+  Variables are the answer.
 lesson_video:
   recode: general/start/03-variables
   video_id: ZsrJsH8DNqE
