@@ -130,13 +130,16 @@ gulp.task('optimise', function () {
   var revAll = new $.revAll({
     dontRenameFile: ['.html', '.xml', '.txt'],
     dontSearchFile: [/^\/assets\/files\//],
-    dontGlobal: [/^\/assets\/files\/video-config\/flash\//]
+    dontGlobal: [/^\/assets\/files\/video-config\/flash\//],
+    prefix: 'http://decode.org.nz'
   });
 
   return gulp.src('serve/**')
     .pipe($.if('*.js', $.uglify({preserveComments: 'some'})))
     // Minify CSS
     .pipe($.if('*.css', $.minifyCss()))
+    // Rev files
+    .pipe(revAll.revision())
     // Minify HTML
     .pipe($.if('*.html', $.htmlmin({
       removeComments: true,
@@ -147,7 +150,6 @@ gulp.task('optimise', function () {
       removeAttributeQuotes: true,
       removeRedundantAttributes: true
     })))
-    .pipe(revAll.revision())
     .pipe(gulp.dest('site'))
 });
 
