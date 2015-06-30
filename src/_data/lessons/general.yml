@@ -2,4 +2,4 @@
   path: start
   author: Christian Silver
   label: Under Development
-  lessons: ['intro', 'events']
+  lessons: ['intro', 'events', 'variables']
