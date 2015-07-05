@@ -131,7 +131,7 @@ gulp.task('optimise', function () {
     dontRenameFile: ['.html', '.xml', '.txt'],
     dontSearchFile: [/^\/assets\/files\//],
     dontGlobal: [/^\/assets\/files\/video-config\/flash\//],
-    prefix: 'http://decode.org.nz'
+    prefix: 'http://getdecoded.org'
   });
 
   return gulp.src('serve/**')
