@@ -1,4 +1,5 @@
 var $ = require('jquery');
+require('./plugins');
 var createVideo = require('./old-video');
 var Sandbox = require('javascript-sandbox');
 var Recode = require('recode');
