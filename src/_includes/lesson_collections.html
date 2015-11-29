@@ -1,0 +1,17 @@
+<div class="lesson-collections">
+  {% for collection_key in site.data.lessons.index.collections %}
+  {% capture path %}_lesson_collections/{{ collection_key }}.md{% endcapture %}
+  {% assign collection = site.lesson_collections|where:"relative_path",path %}
+  {% assign collection = collection[0] %}
+  <div class="lesson-link">
+    <a href="{{ collection.url }}">
+      <div class="img-holder">
+        <div class="inner">
+          <img src="/assets/img/icons/{{ collection.icon }}.svg" alt="{{ collection.title }} icon"/>
+        </div>
+      </div>
+      <div class="lesson-title">{{ collection.title }}</div>
+    </a>
+  </div>
+  {% endfor %}
+</div>

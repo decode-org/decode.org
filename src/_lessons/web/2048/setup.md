@@ -1,7 +1,7 @@
 ---
 title: "Get Ready to Make 2048"
-lesson_video:
-  video_id: hLnGFC2As5w
+lesson_video: web/twenty48/setup
+date: 11-6-2015
 ---
 Today we start working on recreating the popular game, 2048, from scratch. We start off by looking at the game, downloading some software to edit code and learn about one the languages we'll be using: HTML.
 
@@ -24,7 +24,5 @@ recording software which will be fixed! Luckily, there wasn't too much coding in
 so not a lot was missed out on.
 
 Big thanks to <a href="https://soundcloud.com/nirvanajakujo" target="_blank">nirvanajakujo</a>
-for their track, <a href="https://soundcloud.com/nirvanajakujo/walk" target="_blank">Walk</a> 
+for their track, <a href="https://soundcloud.com/nirvanajakujo/walk" target="_blank">Walk</a>
 which is used as background music in this video.
-
-

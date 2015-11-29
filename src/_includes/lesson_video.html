@@ -1,0 +1,10 @@
+{% assign video_keys = include.video_id|split:'/' %}
+{% assign path = video_keys[0] %}
+{% assign lesson_video = site.data.videos[path] %}
+{% assign path = video_keys[1] %}
+{% assign lesson_video = lesson_video[path] %}
+{% assign path = video_keys[2] %}
+{% assign lesson_video = lesson_video[path] %}
+<div class="content-wrapper{% if lesson_video.sandbox %} content-wrapper-grand{% endif %}">
+  <div class="lesson-video"{% if lesson_video.recode %} data-video-recode="/assets/files/video-config/{{ lesson_video.recode }}.json"{% endif %}{% if lesson_video.video_id %} data-video-id="{{ lesson_video.video_id }}"{% endif %}{% if lesson_video.transitions %} data-video-transitions="{{ lesson_video.transitions | jsonify | xml_escape }}"{% endif %}{% if lesson_video.sandbox %} data-video-sandbox="{{ lesson_video.sandbox }}"{% endif %}></div>
+</div>

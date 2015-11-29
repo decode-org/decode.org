@@ -8,37 +8,49 @@ meta_description: Decode provides physical workshops on technology and software 
 {% include header.html %}
 <div class="site-content">
   <div class="home-hero">
-    <div class="phone-holder">
-      <div class="inner"></div>
-      <div class="phone-text">Computers aren't difficult<br/>
-        <br />
-        Let's tackle them, together</div>
+    <div class="content-wrapper home-hero-text">
+      <h1 class="home-heading">Code doesn't have to be hard</h1>
+      <p class="home-subtitle">It could change your life, why not give it a go?</p>
+    </div>
+    <div class="home-hero-video">
+      {% include lesson_video.html video_id='general/start/intro' %}
     </div>
   </div>
   <div class="home-row">
     <div class="content-wrapper">
-      <h1>Code has passed us by</h1>
-      <p>And it's no secret. Technology has become something so easy to access but so easy to become a consumer of, the world has taken that mentality on. Decode, a project based in New Zealand is one that tries to reverse that mentality, empowering people with technology so that they may use it and it may not use them.</p>
-    </div>
-  </div>
-  <div class="home-row sessions-row">
-    <div class="content-wrapper">
-      <h2>Sessions</h2>
-      <p>Decode supplies a model for schools and other organisations to run sessions that allow students to explore technology in a way that they enjoy, and a way that allows them to learn a lot. You can find a local session today, or volunteer your time to make sessions better. This could be in the form of running your own sessions, or joining a current one as a mentor.</p>
-      <p><a href="/locations/" class="button">Find a Session</a><a href="/run/" class="button">Volunteer</a></p>
-    </div>
-  </div>
-  <div class="home-row lessons-row">
-    <div class="content-wrapper">
-      <h2>Learn Online</h2>
-      <p>Either as a tool for sessions or for anyone who wants to learn more about coding and computers in general, we're populating an archive of valuable lessons. Start now by going to the <a href="/learn/">Learn</a> page or choosing a category right here.</p>
+      {% assign recent_lessons = site.lessons|flatten_lessons|ordered_sort: 'date', 'last', 'desc' %}
+
+      <h2>Start Learning Online</h2>
+      {% include lesson_collections.html %}
+
+      <h2>Recent lessons</h2>
       <p>
-        {% for collection_key in site.data.lessons.index.collections %}
-          {% capture path %}_lesson_collections/{{ collection_key }}.md{% endcapture %}
-          {% assign collection = site.lesson_collections|where:"relative_path",path %}
-          {% assign collection = collection[0] %}
-          <a href="{{ collection.url }}" class="button">{{ collection.title }}</a>
+        {% for lesson in recent_lessons limit: 3 %}
+          <a href="{{ lesson.url }}" class="button">{{ lesson.title }}</a>
         {% endfor %}
+      </p>
+    </div>
+  </div>
+  <div class="home-row sessions-row" id="teachers">
+    <div class="content-wrapper">
+      <h2>For Teachers</h2>
+      <p>All of our new videos come with presentations that can be played right in your browser. If you want to use Decode's lessons in a classroom, these will prove as useful tools.</p>
+      <p><a href="http://presentations.getdecoded.org" class="button">Presentations</a></p>
+    </div>
+  </div>
+  <div class="home-row about-row" id="about">
+    <div class="content-wrapper">
+      <h2>About Decode</h2>
+      <p>
+        Technology has become so easy to access but so easy to become a consumer of,
+        the world has taken that mentality on. Decode is a project that tries to reverse that mentality,
+        empowering people with technology so that they may use it and it may not use them. We do this by providing
+        online lessons to introduce people to programming and to help them in their journey of learning it.
+      </p>
+      <p>
+        Decode was once a model for workshops, but there are so many great ones that we decided to focus
+        just on lessons. Teachers can still use our resources in the classroom though. See below a TEDx talk
+        from 2013 by Decode founder, Christian Silver about his vision for the project.
       </p>
     </div>
   </div>
@@ -56,4 +68,3 @@ meta_description: Decode provides physical workshops on technology and software 
   </div>
   {% include footer.html %}
 </div>
-

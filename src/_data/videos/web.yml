@@ -1,0 +1,18 @@
+twenty48:
+  setup:
+    video_id: hLnGFC2As5w
+
+  grid:
+    recode: web/2048/02-grid
+    video_id: UflvZtruOZE
+    language: html
+    transitions:
+      - to: recode
+        at: 345
+      - to: youtube
+        at: 431
+      - to: recode
+        at: 504
+      - to: youtube
+        at: 585
+      - to: recode
